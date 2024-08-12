@@ -1,0 +1,12 @@
+# ninja log v5
+0	185	1723082779775975250	list/seqlist/CMakeFiles/test01.dir/test01.cpp.o	1e6aef7813999d8a
+210	348	1723082779935975248	list/seqlist/test01	91f228fc72f86b56
+0	210	1723082779795975249	list/seqlist/CMakeFiles/test01.dir/myseqlist.cpp.o	73acf0ecfa4eed4d
+0	195	1723463863364443270	list/seqlist/CMakeFiles/test_seqlist.dir/test_seqlist.cpp.o	5b0e3362fa130b8d
+0	197	1723463863374443270	list/seqlist/CMakeFiles/test_seqlist.dir/myseqlist.cpp.o	9ec068ee21c100a7
+197	296	1723463863474443269	list/seqlist/test_seqlist	d2339f127202f53b
+0	140	1723339486619606938	list/seqlist/CMakeFiles/test_seqlist.dir/__/__/myhead.cpp.o	9916ced8d9af2204
+1	227	1723469564924405156	list/linklist/CMakeFiles/test_singlylinklist.dir/test_singlylinklist.cpp.o	c1c3e3dac0a66b69
+153	247	1723469805004403551	list/linklist/test_singlylinklist	bbfd10b220aed280
+0	152	1723469804914403552	list/linklist/CMakeFiles/test_singlylinklist.dir/polynomial.cpp.o	31d8d123cafa32f7
+0	2	0	clean	a31eedcededa8236

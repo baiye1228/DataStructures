@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o list/seqlist/CMakeFiles/test_seqlist.dir/myseqlist.cpp.o -c /home/bzx/work_space/DataStructures/list/seqlist/myseqlist.cpp",
+  "file": "/home/bzx/work_space/DataStructures/list/seqlist/myseqlist.cpp",
+  "output": "list/seqlist/CMakeFiles/test_seqlist.dir/myseqlist.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o list/seqlist/CMakeFiles/test_seqlist.dir/test_seqlist.cpp.o -c /home/bzx/work_space/DataStructures/list/seqlist/test_seqlist.cpp",
+  "file": "/home/bzx/work_space/DataStructures/list/seqlist/test_seqlist.cpp",
+  "output": "list/seqlist/CMakeFiles/test_seqlist.dir/test_seqlist.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o list/linklist/CMakeFiles/test_singlylinklist.dir/polynomial.cpp.o -c /home/bzx/work_space/DataStructures/list/linklist/polynomial.cpp",
+  "file": "/home/bzx/work_space/DataStructures/list/linklist/polynomial.cpp",
+  "output": "list/linklist/CMakeFiles/test_singlylinklist.dir/polynomial.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o list/linklist/CMakeFiles/test_singlylinklist.dir/test_singlylinklist.cpp.o -c /home/bzx/work_space/DataStructures/list/linklist/test_singlylinklist.cpp",
+  "file": "/home/bzx/work_space/DataStructures/list/linklist/test_singlylinklist.cpp",
+  "output": "list/linklist/CMakeFiles/test_singlylinklist.dir/test_singlylinklist.cpp.o"
+}
+]

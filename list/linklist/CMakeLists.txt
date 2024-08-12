@@ -1,0 +1,1 @@
+add_executable(test_singlylinklist polynomial.cpp test_singlylinklist.cpp)
