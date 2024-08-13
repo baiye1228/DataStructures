@@ -34,7 +34,7 @@ bu_tools::Polynomial P;
  * @brief : 主菜单
  * *****************************************************************
  */
-void menu01() {
+void Menu01() {
   cout << "************测 试 非 循 环 单 链 表 的 操 作************\n";
   cout << "          1.取非循环单链表的第i个结点\n";
   cout << "          2.在第i个结点之前插入一个数据域为e的结点\n";
@@ -61,7 +61,7 @@ void menu01() {
  * @brief : 非循环单链表的应用菜单
  * *****************************************************************
  */
-void menu02() {
+void Menu02() {
   cout << "********** 多项式的运算（非循环单链表的应该）**********\n";
   cout << "   16.1  判断多项式是否为空\n";
   cout << "   16.2  把一个多项式赋值给另一个多项式\n";
@@ -80,7 +80,7 @@ void menu02() {
  * @brief : 初始化随机数种子
  * *****************************************************************
  */
-void initializeRandomSeed() {
+void InitRandomSeed() {
   srand(static_cast<unsigned>(time(0)));
 }
 
@@ -90,7 +90,7 @@ void initializeRandomSeed() {
  * @return int
  * *****************************************************************
  */
-int generateRandomNumber01() {
+int GenerateRandomNumber01() {
   return rand() % 100;
 }
 
@@ -100,7 +100,7 @@ int generateRandomNumber01() {
  * @return int
  * *****************************************************************
  */
-int generateRandomNumber02() {
+int GenerateRandomNumber02() {
   // 生成-100到100之间的随机数
   return rand() % 201 - 100;
 }
@@ -111,7 +111,7 @@ int generateRandomNumber02() {
  * @return int
  * *****************************************************************
  */
-int generateRandomNumber03() {
+int GenerateRandomNumber03() {
   // 生成-100到100之间的随机数
   return rand() % 20;
 }
@@ -122,14 +122,14 @@ int generateRandomNumber03() {
  * @param  L
  * *****************************************************************
  */
-void showSinglyLinkList(const bu_tools::SinglyLinkList<int> &L) {
+void ShowSinglyLinkList(const bu_tools::SinglyLinkList<int> &L) {
   // 定义每行显示的最大元素数量
   const int elementsPerRow = 10;
   // 定义标号和元素的宽度
   const int labelWidth = 7;
   const int numberWidth = 5;
 
-  int len = L.get_length();
+  int len = L.GetLength();
   int e;
 
   cout << "\n\n非循环单链表为：\n\n";
@@ -143,7 +143,7 @@ void showSinglyLinkList(const bu_tools::SinglyLinkList<int> &L) {
 
     // 打印当前行的元素
     for (int j = i; j < i + elementsPerRow && j < len; ++j) {
-      L.get_elem(j + 1, e);
+      L.GetElem(j + 1, e);
       cout << setw(numberWidth - 1) << e << "  ";
       if (j + 1 < len) {
         cout << "->";
@@ -162,25 +162,25 @@ void showSinglyLinkList(const bu_tools::SinglyLinkList<int> &L) {
  * @param  L
  * *****************************************************************
  */
-void initSinglyLinkLIst(const int len, bu_tools::SinglyLinkList<int> &L) {
+void InitSinglyLinkLIst(const int len, bu_tools::SinglyLinkList<int> &L) {
   if (len <= 0) {
     return;
   }
 
   for (int i = 0; i < len; ++i) {
-    L.append(generateRandomNumber01());
+    L.Append(GenerateRandomNumber01());
   }
 }
 
 void randomPolynomial(bu_tools::Polynomial &P) {
-  int n = generateRandomNumber03();
+  int n = GenerateRandomNumber03();
 
   bu_tools::Term temp_t;
   for (int i = 0; i < n; ++i) {
-    temp_t.m_coef = generateRandomNumber02();
-    temp_t.m_expn = generateRandomNumber03();
+    temp_t.m_coef = GenerateRandomNumber02();
+    temp_t.m_expn = GenerateRandomNumber03();
 
-    P.add_term(temp_t);
+    P.AddTerm(temp_t);
   }
 }
 
@@ -192,8 +192,8 @@ void randomPolynomial(bu_tools::Polynomial &P) {
 int main(int argc, const char *argv[]) {
 
   //随机生成一个15长度的非循环单链表
-  initializeRandomSeed();
-  initSinglyLinkLIst(15, L);
+  InitRandomSeed();
+  InitSinglyLinkLIst(15, L);
 
   /****************************************************************************************************
 
@@ -208,9 +208,9 @@ int main(int argc, const char *argv[]) {
     char is_continue;
 
     //主菜单
-    menu01();
+    Menu01();
     //展示当前非循环单链表
-    showSinglyLinkList(L);
+    ShowSinglyLinkList(L);
 
     cout << "\n请选择你要操作的代码<1-15>：";
     cin >> menu01_select;
@@ -228,7 +228,7 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         //输入操作循环
         while (true) {
@@ -236,7 +236,7 @@ int main(int argc, const char *argv[]) {
           cout << "\n请输入你要取的结点的序号：";
           cin >> index;
 
-          if (!L.get_elem(index, e)) {
+          if (!L.GetElem(index, e)) {
             cout << "\n输入的内容存在错误，检查是否越界，重新输入！！！！\n";
             cout << "请在下面重新输入：\n\n";
           } else {
@@ -266,7 +266,7 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         //输入操作循环
         while (true) {
@@ -276,12 +276,12 @@ int main(int argc, const char *argv[]) {
           cout << "请输入你要插入结点的数据域：";
           cin >> e;
 
-          if (!L.insert(index, e)) {
+          if (!L.Insert(index, e)) {
             cout << "\n输入的内容存在错误，检查是否越界，重新输入！！！！\n";
             cout << "请在下面重新输入：\n\n";
           } else {
             cout << "\n你已经在第" << index << "个结点插入数据域为 " << e << " 的结点\n";
-            showSinglyLinkList(L);
+            ShowSinglyLinkList(L);
             break;
           }
         }
@@ -308,9 +308,9 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
-        if (L.is_empty()) {
+        if (L.IsEmpty()) {
           cout << "\n当前非循环单链表为空！！！\n";
         } else {
           cout << "\n当前非循环单链表不为空！！！\n";
@@ -338,9 +338,9 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
-        cout << "\n非循环单链表中结点个数：" << L.get_length() << "\n";
+        cout << "\n非循环单链表中结点个数：" << L.GetLength() << "\n";
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -365,7 +365,7 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         int e;
         int index; //获取的符合条件的序号
@@ -375,7 +375,7 @@ int main(int argc, const char *argv[]) {
         cout << "请输入你想要查找的结点：";
         cin >> e;
 
-        index = L.locate_elem(e, bu_tools::equal);
+        index = L.LocateElem(e, bu_tools::Equal);
 
         if (index) {
           cout << "数据域等于" << e << "的第一个结点序号为：" << index << "\n";
@@ -388,7 +388,7 @@ int main(int argc, const char *argv[]) {
         cout << "请输入你想要查找的结点：";
         cin >> e;
 
-        index = L.locate_elem(e, bu_tools::bigger);
+        index = L.LocateElem(e, bu_tools::Bigger);
 
         if (index) {
           cout << "数据域大于" << e << "的第一个结点序号为：" << index << "\n";
@@ -401,7 +401,7 @@ int main(int argc, const char *argv[]) {
         cout << "请输入你想要查找的结点：";
         cin >> e;
 
-        index = L.locate_elem(e, bu_tools::smaller);
+        index = L.LocateElem(e, bu_tools::Smaller);
 
         if (index) {
           cout << "数据域小于" << e << "的第一个结点序号为：" << index << "\n";
@@ -432,13 +432,13 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         int e, prior_e;
         cout << "\n请输入你要查找结点的数据域：";
         cin >> e;
 
-        if (L.prior_elem(e, prior_e)) {
+        if (L.PriorElem(e, prior_e)) {
           cout << "你想查找" << e << "前驱的数据域为：" << prior_e << "\n";
         } else {
           cout << "没有符合要求的结点！！！\n\n";
@@ -466,13 +466,13 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         int e, next_e;
         cout << "\n请输入你要查找结点的数据域：";
         cin >> e;
 
-        if (L.next_elem(e, next_e)) {
+        if (L.NextElem(e, next_e)) {
           cout << "你想查找" << e << "后继的数据域为：" << next_e << "\n";
         } else {
           cout << "没有符合要求的结点！！！\n\n";
@@ -499,15 +499,15 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         int e;
         cout << "\n请输入你想删除结点的数据域：";
         cin >> e;
 
-        if (L.delete_elem(e)) {
+        if (L.DeleteElem(e)) {
           cout << "\n如下是删除后的非循环单链表：\n";
-          showSinglyLinkList(L);
+          ShowSinglyLinkList(L);
         } else {
           cout << "\n没有找到你想删除的结点！！！\n";
         }
@@ -534,11 +534,11 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
-        L.delete_repeat();
+        L.DeleteRepeat();
         cout << "\n删除非循环单链表重复值后：\n";
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -561,11 +561,11 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
-        L.adverse();
+        L.Reverse();
         cout << "\n非循环单链表逆置后如下：\n";
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -589,16 +589,16 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         bu_tools::SinglyLinkList<int> other_L;
-        initSinglyLinkLIst(5, other_L);
+        InitSinglyLinkLIst(5, other_L);
         cout << "\n另一个非循环单链表如下：\n";
-        showSinglyLinkList(other_L);
+        ShowSinglyLinkList(other_L);
 
         L = other_L;
         cout << "\n把另一个非循环单链表赋值给当前非循环单链表，当前非循环单链表如下：\n";
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -621,10 +621,10 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
-        L.clear();
-        cout << "\n当前非循环单链表置空后，结点个数为：" << L.get_length() << "\n";
+        L.Clear();
+        cout << "\n当前非循环单链表置空后，结点个数为：" << L.GetLength() << "\n";
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -647,15 +647,15 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         cout << "\n随机生成一个新的非循环单链表。。。\n";
-        L.clear();
+        L.Clear();
 
-        initSinglyLinkLIst(12, L);
+        InitSinglyLinkLIst(12, L);
 
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -678,11 +678,11 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         bu_tools::SinglyLinkList<int> other_L(L);
         cout << "\n当前非循环单链表初始化另一个非循环单链表，另一个非循环单链表如下:\n";
-        showSinglyLinkList(other_L);
+        ShowSinglyLinkList(other_L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -705,7 +705,7 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //清空当前非循环单链表
-        L.clear();
+        L.Clear();
 
         int e;
         std::string input;
@@ -729,11 +729,11 @@ int main(int argc, const char *argv[]) {
           }
 
           e = std::stoi(input);
-          L.append(e);
+          L.Append(e);
           ++i;
         }
 
-        showSinglyLinkList(L);
+        ShowSinglyLinkList(L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -768,7 +768,7 @@ int main(int argc, const char *argv[]) {
         cout << "\033[2J\033[1;1H";
 
         //多项式菜单
-        menu02();
+        Menu02();
 
         //展示当前多项式
 
@@ -790,7 +790,7 @@ int main(int argc, const char *argv[]) {
             cout << "\033[2J\033[1;1H";
             cout << P;
 
-            if (P.is_empty()) {
+            if (P.IsEmpty()) {
               cout << "\n当前多项式为空！！！\n";
             } else {
               cout << "\n当前多项式不为空！！！\n";
@@ -806,7 +806,7 @@ int main(int argc, const char *argv[]) {
             }
           }
 
-        } else if(menu02_select==2){
+        } else if (menu02_select == 2) {
           /****************************************************************************************************
 
           16.2  把一个多项式赋值给另一个多项式
@@ -821,12 +821,12 @@ int main(int argc, const char *argv[]) {
 
             bu_tools::Polynomial other_P;
             randomPolynomial(other_P);
-            cout<<"\n另一个多项式如下：\n";
-            cout<<other_P;
+            cout << "\n另一个多项式如下：\n";
+            cout << other_P;
 
-            cout<<"\n另一个多项式赋值给当前多项式为：\n";
-            P=other_P;
-            cout<<P;
+            cout << "\n另一个多项式赋值给当前多项式为：\n";
+            P = other_P;
+            cout << P;
 
             //是否再次进行该操作
             cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -838,7 +838,7 @@ int main(int argc, const char *argv[]) {
             }
           }
 
-        }else if(menu02_select==3){
+        } else if (menu02_select == 3) {
           /****************************************************************************************************
 
           16.3  两个多项式的加法
@@ -857,7 +857,7 @@ int main(int argc, const char *argv[]) {
             cout << other_P;
 
             cout << "\n以上两个多项式相加，和为：\n";
-            P = P+other_P;
+            P = P + other_P;
             cout << P;
 
             //是否再次进行该操作
@@ -869,7 +869,7 @@ int main(int argc, const char *argv[]) {
               break;
             }
           }
-        }else if(menu02_select==4){
+        } else if (menu02_select == 4) {
           /****************************************************************************************************
 
           16.4  两个多项式的减法
@@ -900,7 +900,7 @@ int main(int argc, const char *argv[]) {
               break;
             }
           }
-        }else if(menu02_select==5){
+        } else if (menu02_select == 5) {
           /****************************************************************************************************
 
           16.5  设置多项式为空多项式
@@ -913,10 +913,10 @@ int main(int argc, const char *argv[]) {
             cout << "\033[2J\033[1;1H";
             cout << P;
 
-            P.clear();
-            cout<<"\n已经将当前多项式设置为空！！！\n";
+            P.Clear();
+            cout << "\n已经将当前多项式设置为空！！！\n";
 
-            cout<<P;
+            cout << P;
 
             //是否再次进行该操作
             cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -927,7 +927,7 @@ int main(int argc, const char *argv[]) {
               break;
             }
           }
-        }else if(menu02_select==6){
+        } else if (menu02_select == 6) {
           /****************************************************************************************************
 
           16.6  随机生成多项式
@@ -940,12 +940,12 @@ int main(int argc, const char *argv[]) {
             cout << "\033[2J\033[1;1H";
             cout << P;
 
-            P.clear();
-            
+            P.Clear();
+
             randomPolynomial(P);
 
-            cout<<"\n随机生成多项式(采用非循环单链表)如下：\n";
-            cout<<P;
+            cout << "\n随机生成多项式(采用非循环单链表)如下：\n";
+            cout << P;
 
             //是否再次进行该操作
             cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -956,7 +956,7 @@ int main(int argc, const char *argv[]) {
               break;
             }
           }
-        }else if(menu02_select==7){
+        } else if (menu02_select == 7) {
           /****************************************************************************************************
 
           16.7  用已有的多项式初始化另一个多项式
@@ -971,8 +971,8 @@ int main(int argc, const char *argv[]) {
 
             bu_tools::Polynomial other_P(P);
 
-            cout<<"\n用当前多项式初始化另一个多项式如下：\n";
-            cout<<other_P;
+            cout << "\n用当前多项式初始化另一个多项式如下：\n";
+            cout << other_P;
 
             //是否再次进行该操作
             cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -983,7 +983,7 @@ int main(int argc, const char *argv[]) {
               break;
             }
           }
-        }else if(menu02_select==8){
+        } else if (menu02_select == 8) {
           /****************************************************************************************************
 
           16.8  输入多项式
@@ -994,11 +994,11 @@ int main(int argc, const char *argv[]) {
 
             // 清空终端屏幕
             cout << "\033[2J\033[1;1H";
-            P.clear();
+            P.Clear();
 
-            cin>>P;
+            cin >> P;
 
-            cout<<P;
+            cout << P;
 
             //是否再次进行该操作
             cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -1009,8 +1009,7 @@ int main(int argc, const char *argv[]) {
               break;
             }
           }
-        }
-        else {
+        } else {
           break;
         }
       }

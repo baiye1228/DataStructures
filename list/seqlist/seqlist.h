@@ -36,7 +36,7 @@ namespace bu_tools {
  * *****************************************************************
  */
 template <typename T>
-bool equal(const T &l_e, const T &r_e) {
+bool Equal(const T &l_e, const T &r_e) {
   if (l_e == r_e) {
     return true;
   }
@@ -54,7 +54,7 @@ bool equal(const T &l_e, const T &r_e) {
  * *****************************************************************
  */
 template <typename T>
-bool bigger(const T &l_e, const T &r_e) {
+bool Bigger(const T &l_e, const T &r_e) {
   if (l_e > r_e) {
     return true;
   }
@@ -72,7 +72,7 @@ bool bigger(const T &l_e, const T &r_e) {
  * *****************************************************************
  */
 template <typename T>
-bool smaller(const T &l_e, const T &r_e) {
+bool Smaller(const T &l_e, const T &r_e) {
   if (l_e < r_e) {
     return true;
   }
@@ -91,28 +91,28 @@ class SeqList {
 protected:
   T *m_elem;      // 指向动态分配数组的指针
   int m_capacity; // 顺序表的最大容量
-  int m_n;        // 当前顺序表中的元素数量
+  int m_len;      // 当前顺序表中的元素数量
 
 private:
-  void resize();
+  void Resize();
 
 public:
   SeqList(/* args */);
   SeqList(const SeqList<T> &L);
   virtual ~SeqList();
 
-  void clear();
-  bool delete_elem(int index, T &e);
-  bool get_elem(int index, T &e) const;
-  int get_length() const;
-  int get_capacity() const;
-  bool insert(int index, const T &e);
-  void append(const T &e);
-  bool is_empty() const;
-  int locate_elem(const T &e, bool (*compare)(const T &, const T &)) const;
-  bool next_elem(const T &e, T &next_e) const;
-  bool prior_elem(const T &e, T &prior_e) const;
-  SeqList<T> &operator=(const SeqList<T> &right_L);
+  void Clear();
+  bool DeleteElem(int index, T &e);
+  bool GetElem(int index, T &e) const;
+  int GetLength() const;
+  int GetCapacity() const;
+  bool Insert(int index, const T &e);
+  void Append(const T &e);
+  bool IsEmpty() const;
+  int LocateElem(const T &e, bool (*compare)(const T &, const T &)) const;
+  bool NextElem(const T &e, T &next_e) const;
+  bool PriorElem(const T &e, T &prior_e) const;
+  SeqList<T> &operator=(const SeqList<T> &right_l);
   T &operator[](int index);
   T &operator[](int index) const;
 };
@@ -130,13 +130,13 @@ public:
  * *****************************************************************
  */
 template <typename T>
-inline void SeqList<T>::resize() {
+inline void SeqList<T>::Resize() {
 
   m_capacity *= 2; // 常见的扩容策略是加倍容量
   T *new_data = new T[m_capacity];
   assert(new_data != 0);
 
-  for (int i = 0; i < m_n; ++i) {
+  for (int i = 0; i < m_len; ++i) {
     new_data[i] = m_elem[i];
   }
   delete[] m_elem;   // 释放旧数组内存
@@ -152,7 +152,7 @@ inline void SeqList<T>::resize() {
 template <typename T>
 inline SeqList<T>::SeqList() {
   m_capacity = 0;
-  m_n = 0;
+  m_len = 0;
   m_elem = nullptr;
 }
 
@@ -170,9 +170,9 @@ inline SeqList<T>::SeqList(const SeqList<T> &L) {
   assert(m_elem != 0);
 
   m_capacity = L.m_capacity;
-  m_n = L.m_n;
+  m_len = L.m_len;
 
-  for (int i = 1; i <= m_n; ++i) {
+  for (int i = 1; i <= m_len; ++i) {
     m_elem[i - 1] = L.m_elem[i - 1];
   }
 }
@@ -195,10 +195,10 @@ inline SeqList<T>::~SeqList() {
  * *****************************************************************
  */
 template <typename T>
-inline void SeqList<T>::clear() {
+inline void SeqList<T>::Clear() {
 
   if (m_elem != nullptr) {
-    m_n = 0;
+    m_len = 0;
     m_capacity = 0;
     delete[] m_elem;
     m_elem = nullptr;
@@ -216,20 +216,20 @@ inline void SeqList<T>::clear() {
  * *****************************************************************
  */
 template <typename T>
-inline bool SeqList<T>::delete_elem(int index, T &e) {
+inline bool SeqList<T>::DeleteElem(int index, T &e) {
   //判断是否越界
-  if (index < 1 || index > m_n) {
+  if (index < 1 || index > m_len) {
     return false;
   }
 
   e = m_elem[index - 1];
 
   //元素往前移动
-  for (int i = index + 1; i <= m_n; ++i) {
+  for (int i = index + 1; i <= m_len; ++i) {
     m_elem[i - 2] = m_elem[i - 1];
   }
 
-  --m_n;
+  --m_len;
 
   return true;
 }
@@ -245,9 +245,9 @@ inline bool SeqList<T>::delete_elem(int index, T &e) {
  * *****************************************************************
  */
 template <typename T>
-inline bool SeqList<T>::get_elem(int index, T &e) const {
+inline bool SeqList<T>::GetElem(int index, T &e) const {
   //判断是否越界
-  if (index < 1 || index > m_n) {
+  if (index < 1 || index > m_len) {
     return false;
   }
 
@@ -264,8 +264,8 @@ inline bool SeqList<T>::get_elem(int index, T &e) const {
  * *****************************************************************
  */
 template <typename T>
-inline int SeqList<T>::get_length() const {
-  return m_n;
+inline int SeqList<T>::GetLength() const {
+  return m_len;
 }
 
 /**
@@ -276,7 +276,7 @@ inline int SeqList<T>::get_length() const {
  * *****************************************************************
  */
 template <typename T>
-inline int SeqList<T>::get_capacity() const {
+inline int SeqList<T>::GetCapacity() const {
   return m_capacity;
 }
 
@@ -291,26 +291,26 @@ inline int SeqList<T>::get_capacity() const {
  * *****************************************************************
  */
 template <typename T>
-inline bool SeqList<T>::insert(int index, const T &e) {
+inline bool SeqList<T>::Insert(int index, const T &e) {
   //判断是否越界
-  if (index < 1 || index > m_n) {
+  if (index < 1 || index > m_len) {
     return false;
   }
 
   T *new_base;
 
   //判断当前空间是否已满
-  if (m_n == m_capacity) {
-    resize();
+  if (m_len == m_capacity) {
+    Resize();
   }
 
   //元素后移
-  for (int i = m_n; i >= index; --i) {
+  for (int i = m_len; i >= index; --i) {
     m_elem[i] = m_elem[i - 1];
   }
   m_elem[index - 1] = e;
 
-  ++m_n;
+  ++m_len;
   return true;
 }
 
@@ -324,19 +324,19 @@ inline bool SeqList<T>::insert(int index, const T &e) {
  * *****************************************************************
  */
 template <typename T>
-inline void SeqList<T>::append(const T &e) {
+inline void SeqList<T>::Append(const T &e) {
 
   //已经放满了
-  if (m_n == m_capacity) {
+  if (m_len == m_capacity) {
     if (m_capacity == 0) {
       m_capacity = 1; //初始容积为1
     }
-    resize();
+    Resize();
   }
 
-  m_elem[m_n] = e;
+  m_elem[m_len] = e;
 
-  ++m_n;
+  ++m_len;
 }
 
 /**
@@ -348,8 +348,8 @@ inline void SeqList<T>::append(const T &e) {
  * *****************************************************************
  */
 template <typename T>
-inline bool SeqList<T>::is_empty() const {
-  return m_n == 0;
+inline bool SeqList<T>::IsEmpty() const {
+  return m_len == 0;
 }
 
 /**
@@ -362,12 +362,12 @@ inline bool SeqList<T>::is_empty() const {
  * *****************************************************************
  */
 template <typename T>
-inline int SeqList<T>::locate_elem(const T &e, bool (*compare)(const T &, const T &)) const {
+inline int SeqList<T>::LocateElem(const T &e, bool (*compare)(const T &, const T &)) const {
   int i = 1;
-  for (i; i <= m_n && !(*compare)(m_elem[i - 1], e); ++i)
+  for (i; i <= m_len && !(*compare)(m_elem[i - 1], e); ++i)
     ;
 
-  if (i <= m_n) {
+  if (i <= m_len) {
     return i;
   } else {
     return 0;
@@ -385,13 +385,13 @@ inline int SeqList<T>::locate_elem(const T &e, bool (*compare)(const T &, const 
  * *****************************************************************
  */
 template <typename T>
-inline bool SeqList<T>::next_elem(const T &e, T &next_e) const {
-  int i = locate_elem(e, equal);
+inline bool SeqList<T>::NextElem(const T &e, T &next_e) const {
+  int i = LocateElem(e, Equal);
 
-  if (i < 1 || i == m_n) {
+  if (i < 1 || i == m_len) {
     return false;
   } else {
-    get_elem(i + 1, next_e);
+    GetElem(i + 1, next_e);
   }
   return true;
 }
@@ -407,13 +407,13 @@ inline bool SeqList<T>::next_elem(const T &e, T &next_e) const {
  * *****************************************************************
  */
 template <typename T>
-inline bool SeqList<T>::prior_elem(const T &e, T &prior_e) const {
-  int i = locate_elem(e, equal);
+inline bool SeqList<T>::PriorElem(const T &e, T &prior_e) const {
+  int i = LocateElem(e, Equal);
 
   if (i <= 1) {
     return false;
   } else {
-    get_elem(i - 1, prior_e);
+    GetElem(i - 1, prior_e);
   }
   return true;
 }
@@ -427,19 +427,19 @@ inline bool SeqList<T>::prior_elem(const T &e, T &prior_e) const {
  * *****************************************************************
  */
 template <typename T>
-inline SeqList<T> &SeqList<T>::operator=(const SeqList<T> &right_L) {
+inline SeqList<T> &SeqList<T>::operator=(const SeqList<T> &right_l) {
   //避免自我赋值
-  if (this != &right_L) {
+  if (this != &right_l) {
     delete[] m_elem;
 
-    m_elem = new T[right_L.m_capacity];
+    m_elem = new T[right_l.m_capacity];
     assert(m_elem != 0);
 
-    m_capacity = right_L.m_capacity;
+    m_capacity = right_l.m_capacity;
   }
-  m_n = right_L.m_n;
-  for (int i = 0; i < m_n; ++i) {
-    m_elem[i] = right_L.m_elem[i];
+  m_len = right_l.m_len;
+  for (int i = 0; i < m_len; ++i) {
+    m_elem[i] = right_l.m_elem[i];
   }
 
   return *this;
@@ -456,7 +456,7 @@ inline SeqList<T> &SeqList<T>::operator=(const SeqList<T> &right_L) {
 template <typename T>
 inline T &SeqList<T>::operator[](int index) {
   //判断是否越界
-  if (index < 1 || index > m_n) {
+  if (index < 1 || index > m_len) {
     throw std::out_of_range("给出的下标越界");
   }
   return m_elem[index - 1];
@@ -465,7 +465,7 @@ inline T &SeqList<T>::operator[](int index) {
 template <typename T>
 inline T &SeqList<T>::operator[](int index) const {
   //判断是否越界
-  if (index < 1 || index > m_n) {
+  if (index < 1 || index > m_len) {
     throw std::out_of_range("给出的下标越界");
   }
   return m_elem[index - 1];

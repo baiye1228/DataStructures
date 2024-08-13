@@ -24,12 +24,12 @@ namespace bu_tools {
 class MySeqList : public SeqList<int> {
 
 public:
-  void union_set(const MySeqList &other_L, MySeqList &result_L) const;
-  void intersect_set(const MySeqList &other_L, MySeqList &result_L) const;
-  void difference_set(const MySeqList &other_L, MySeqList &result_L) const;
-  void bubble_sort();
-  void remove_duplicates();
-  void show() const;
+  void UnionSet(const MySeqList &other_l, MySeqList &result_l) const;
+  void IntersectSet(const MySeqList &other_l, MySeqList &result_l) const;
+  void DifferenceSet(const MySeqList &other_l, MySeqList &result_l) const;
+  void BubbleSort();
+  void RemoveDuplicates();
+  void Show() const;
 };
 
 } // namespace bu_tools

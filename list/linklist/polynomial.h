@@ -48,19 +48,18 @@ public:
 class Polynomial : public SinglyLinkList<Term> {
 
 public:
-Polynomial(){}
-Polynomial(const Polynomial& other_P);
+  Polynomial() {}
+  Polynomial(const Polynomial &other_P);
 
-
-  void add_term(const Term &t);
+  void AddTerm(const Term &t);
   Polynomial operator+(const Polynomial &other_p);
   Polynomial operator-(const Polynomial &other_p);
 
-  void read(istream& in);
-  void display(ostream& out)const;
+  void Read(istream &in);
+  void Display(ostream &out) const;
 
-  friend istream& operator>>(istream& in, Polynomial& p);
-  friend ostream &operator<<(ostream &out,const  Polynomial &p);
+  friend istream &operator>>(istream &in, Polynomial &p);
+  friend ostream &operator<<(ostream &out, const Polynomial &p);
 };
 
 } // namespace bu_tools

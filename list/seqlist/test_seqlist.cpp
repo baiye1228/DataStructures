@@ -12,6 +12,7 @@
  */
 
 #include "myseqlist.h"
+#include "seqlist.h"
 #include <cctype>
 #include <cstdlib>
 #include <ctime>
@@ -33,7 +34,7 @@ bu_tools::MySeqList L;
  * @brief : 主菜单
  * *****************************************************************
  */
-void menu01() {
+void Menu01() {
   cout << "\n*************** 测 试 顺 序 表 操 作 ***************\n";
   cout << "         1.在第i个元素之前插入一个元素\n";
   cout << "         2.判断顺序表是否为空\n";
@@ -59,7 +60,7 @@ void menu01() {
  * @brief : 初始化随机数种子
  * *****************************************************************
  */
-void initializeRandomSeed() {
+void InitRandomSeed() {
   srand(static_cast<unsigned>(time(0)));
 }
 
@@ -69,7 +70,7 @@ void initializeRandomSeed() {
  * @return int
  * *****************************************************************
  */
-int generateRandomNumber() {
+int GenerateRandomNumber() {
   return rand() % 100;
 }
 
@@ -79,9 +80,9 @@ int generateRandomNumber() {
  * @param  L
  * *****************************************************************
  */
-void showSeqList(const bu_tools::MySeqList &L) {
-  cout << "\n当前顺序表有" << L.get_length() << "个元素，分别为：\n";
-  L.show();
+void ShowSeqList(const bu_tools::MySeqList &L) {
+  cout << "\n当前顺序表有" << L.GetLength() << "个元素，分别为：\n";
+  L.Show();
 }
 
 /**
@@ -91,14 +92,14 @@ void showSeqList(const bu_tools::MySeqList &L) {
  * @param  L
  * *****************************************************************
  */
-void initSeqList(const int len, bu_tools::MySeqList &L) {
+void InitSeqList(const int len, bu_tools::MySeqList &L) {
 
   if (len <= 0) {
     return;
   }
 
   for (int i = 0; i < len; ++i) {
-    L.append(generateRandomNumber());
+    L.Append(GenerateRandomNumber());
   }
 }
 
@@ -115,16 +116,16 @@ int main(int argc, const char *argv[]) {
   char is_continue;
 
   //随机生成一个15长度的顺序表
-  initializeRandomSeed();
-  initSeqList(15, L);
+  InitRandomSeed();
+  InitSeqList(15, L);
 
   //主循环
   while (true) {
 
     //主菜单
-    menu01();
+    Menu01();
     //展示当前顺序表
-    showSeqList(L);
+    ShowSeqList(L);
 
     cout << "\n请选择你要操作的代码<1-15>：";
     cin >> menu01_select;
@@ -143,7 +144,7 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         //输入操作循环
         while (true) {
@@ -155,7 +156,7 @@ int main(int argc, const char *argv[]) {
           cout << "请输入你要插入的元素值：";
           cin >> elem;
 
-          if (!L.insert(index, elem)) {
+          if (!L.Insert(index, elem)) {
             cout << "输入的内容存在错误，重点检查是否越界，重新输入！！！！\n";
             cout << "请在下面重新输入：\n\n";
           } else {
@@ -163,7 +164,7 @@ int main(int argc, const char *argv[]) {
           }
         }
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -187,9 +188,9 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
-        if (L.is_empty()) {
+        if (L.IsEmpty()) {
           cout << "\n\n当前顺序表为空！！！\n";
         } else {
           cout << "\n\n当前顺序表不为空！！！\n";
@@ -216,9 +217,9 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
-        cout << "\n顺序表元素的个数为：" << L.get_length() << "\n";
+        cout << "\n顺序表元素的个数为：" << L.GetLength() << "\n";
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -241,15 +242,15 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         //输入操作循环
         while (true) {
           int index, elem;
-          cout << "\n请输入你想取的元素的序号<1--" << L.get_length() << ">:";
+          cout << "\n请输入你想取的元素的序号<1--" << L.GetLength() << ">:";
           cin >> index;
 
-          if (!L.get_elem(index, elem)) {
+          if (!L.GetElem(index, elem)) {
             cout << "\n输入的内容存在错误，检查是否越界，重新输入！！！！\n";
             cout << "请在下面重新输入：\n\n";
           } else {
@@ -279,7 +280,7 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         int elem;
         int index; //获取的符合条件的序号
@@ -289,7 +290,7 @@ int main(int argc, const char *argv[]) {
         cout << "请输入你想要查找的元素：";
         cin >> elem;
 
-        index = L.locate_elem(elem, bu_tools::equal);
+        index = L.LocateElem(elem, bu_tools::Equal);
 
         if (index) {
           cout << "你想要查找的第一个等于" << elem << "的元素的序号为：" << index << "\n";
@@ -302,7 +303,7 @@ int main(int argc, const char *argv[]) {
         cout << "请输入你想要查找的元素：";
         cin >> elem;
 
-        index = L.locate_elem(elem, bu_tools::bigger);
+        index = L.LocateElem(elem, bu_tools::Bigger);
 
         if (index) {
           cout << "你想要查找的第一个大于" << elem << "的元素的序号为：" << index << "\n";
@@ -315,7 +316,7 @@ int main(int argc, const char *argv[]) {
         cout << "请输入你想要查找的元素：";
         cin >> elem;
 
-        index = L.locate_elem(elem, bu_tools::smaller);
+        index = L.LocateElem(elem, bu_tools::Smaller);
 
         if (index) {
           cout << "你想要查找的第一个小于" << elem << "的元素的序号为：" << index << "\n";
@@ -345,13 +346,13 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         int e, prior_e;
         cout << "\n请输入你要查找其前驱的元素：";
         cin >> e;
 
-        if (L.prior_elem(e, prior_e)) {
+        if (L.PriorElem(e, prior_e)) {
           cout << "你想查找的元素" << e << "的前驱为：" << prior_e << "\n";
         } else {
           cout << "没有符合要求的元素！！！\n\n";
@@ -379,13 +380,13 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         int e, next_e;
         cout << "\n请输入你要查找其后继的元素：";
         cin >> e;
 
-        if (L.next_elem(e, next_e)) {
+        if (L.NextElem(e, next_e)) {
           cout << "你想查找的元素" << e << "的后继为：" << next_e << "\n";
         } else {
           cout << "没有符合要求的元素！！！\n\n";
@@ -414,20 +415,20 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         int index;
         int e;
 
         //输入操作循环
         while (true) {
-          cout << "\n请输入你想删除元素的序号<1--" << L.get_length() << ">:";
+          cout << "\n请输入你想删除元素的序号<1--" << L.GetLength() << ">:";
           cin >> index;
 
-          if (L.delete_elem(index, e)) {
+          if (L.DeleteElem(index, e)) {
             cout << "\n你想删除的第" << index << "个元素的值为：" << e << "\n";
             //展示当前顺序表
-            showSeqList(L);
+            ShowSeqList(L);
             break;
           } else {
             cout << "\n输入的序号越界！！！请重新输入！！！\n\n";
@@ -456,17 +457,17 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         bu_tools::MySeqList temp_L;
         //生成一个长度为3的顺序表
-        initSeqList(3, temp_L);
+        InitSeqList(3, temp_L);
 
         cout << "\n另一个顺序表赋值给当前顺序表如下：\n";
         L = temp_L;
 
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -489,11 +490,11 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
-        L.clear();
+        L.Clear();
 
-        cout << "\n当前顺序表置空后，元素的个数为：" << L.get_length() << "\n";
+        cout << "\n当前顺序表置空后，元素的个数为：" << L.GetLength() << "\n";
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -516,15 +517,15 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         cout << "\n随机生成一个新的顺序表。。。\n";
-        L.clear();
+        L.Clear();
 
-        initSeqList(15, L);
+        InitSeqList(15, L);
 
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -548,14 +549,14 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         bu_tools::MySeqList temp_L(L);
 
         cout << "\n当前顺序表初始化另一个顺序表为：\n";
 
         //展示当前顺序表
-        showSeqList(temp_L);
+        ShowSeqList(temp_L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -574,7 +575,7 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //清空预先准备的顺序表
-        L.clear();
+        L.Clear();
 
         int e;
         std::string input;
@@ -598,13 +599,13 @@ int main(int argc, const char *argv[]) {
           }
 
           e = std::stoi(input);
-          L.append(e);
+          L.Append(e);
           ++i;
         }
 
         cout << "\n你输入的顺序表如下：\n";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";
@@ -627,38 +628,38 @@ int main(int argc, const char *argv[]) {
         // 清空终端屏幕
         cout << "\033[2J\033[1;1H";
         //展示当前顺序表
-        showSeqList(L);
+        ShowSeqList(L);
 
         bu_tools::MySeqList other_L, result_L;
 
-        initSeqList(5, other_L);
+        InitSeqList(5, other_L);
 
         cout << "\n另一个顺序表如下：\n";
-        showSeqList(other_L);
+        ShowSeqList(other_L);
 
         //全部排好序
-        L.bubble_sort();
-        other_L.bubble_sort();
+        L.BubbleSort();
+        other_L.BubbleSort();
 
         cout << "\n\n排序后当前顺序表：\n";
-        showSeqList(L);
+        ShowSeqList(L);
         cout << "\n\n排序后另一个顺序表：\n";
-        showSeqList(other_L);
+        ShowSeqList(other_L);
 
         //并集
-        L.union_set(other_L, result_L);
+        L.UnionSet(other_L, result_L);
         cout << "\n并集为：\n";
-        showSeqList(result_L);
+        ShowSeqList(result_L);
 
         //交集
-        L.intersect_set(other_L, result_L);
+        L.IntersectSet(other_L, result_L);
         cout << "\n交集为：\n";
-        showSeqList(result_L);
+        ShowSeqList(result_L);
 
         //差集
-        L.difference_set(other_L, result_L);
+        L.DifferenceSet(other_L, result_L);
         cout << "\n差集为：\n";
-        showSeqList(result_L);
+        ShowSeqList(result_L);
 
         //是否再次进行该操作
         cout << "\n还继续吗？<Y.继续   N.结束>:";

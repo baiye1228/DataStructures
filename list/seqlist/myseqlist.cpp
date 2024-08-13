@@ -28,36 +28,36 @@ namespace bu_tools {
  * @param  result_L
  * *****************************************************************
  */
-void MySeqList::union_set(const MySeqList &other_L, MySeqList &result_L) const {
+void MySeqList::UnionSet(const MySeqList &other_l, MySeqList &result_l) const {
   int i = 0, j = 0;
 
-  result_L.clear();
+  result_l.Clear();
 
-  while (i < this->m_n && j < other_L.m_n) {
+  while (i < this->m_len && j < other_l.m_len) {
 
-    if (this->m_elem[i] < other_L.m_elem[j]) {
-      result_L.append(this->m_elem[i]);
+    if (this->m_elem[i] < other_l.m_elem[j]) {
+      result_l.Append(this->m_elem[i]);
       ++i;
-    } else if (this->m_elem[i] > other_L.m_elem[j]) {
-      result_L.append(other_L.m_elem[j]);
+    } else if (this->m_elem[i] > other_l.m_elem[j]) {
+      result_l.Append(other_l.m_elem[j]);
       ++j;
     } else {
-      result_L.append(this->m_elem[i]);
+      result_l.Append(this->m_elem[i]);
       ++i;
       ++j;
     }
   }
 
-  while (i < this->m_n) {
-    result_L.append(this->m_elem[i]);
+  while (i < this->m_len) {
+    result_l.Append(this->m_elem[i]);
     ++i;
   }
-  while (j < other_L.m_n) {
-    result_L.append(other_L.m_elem[j]);
+  while (j < other_l.m_len) {
+    result_l.Append(other_l.m_elem[j]);
     ++j;
   }
   //去除重复元素
-  result_L.remove_duplicates();
+  result_l.RemoveDuplicates();
 }
 
 /**
@@ -67,19 +67,19 @@ void MySeqList::union_set(const MySeqList &other_L, MySeqList &result_L) const {
  * @param  result_L
  * *****************************************************************
  */
-void MySeqList::intersect_set(const MySeqList &other_L, MySeqList &result_L) const {
+void MySeqList::IntersectSet(const MySeqList &other_l, MySeqList &result_l) const {
   int i = 0, j = 0;
 
-  result_L.clear();
+  result_l.Clear();
 
-  while (i < this->m_n && j < other_L.m_n) {
+  while (i < this->m_len && j < other_l.m_len) {
 
-    if (this->m_elem[i] == other_L.m_elem[j]) {
+    if (this->m_elem[i] == other_l.m_elem[j]) {
       // 如果两个元素相等，添加到结果中，并移动两个指针
-      result_L.append(this->m_elem[i]);
+      result_l.Append(this->m_elem[i]);
       ++i;
       ++j;
-    } else if (this->m_elem[i] < other_L.m_elem[j]) {
+    } else if (this->m_elem[i] < other_l.m_elem[j]) {
       // 如果第一个元素小于第二个元素，移动第一个数组的指针
       ++i;
     } else {
@@ -89,7 +89,7 @@ void MySeqList::intersect_set(const MySeqList &other_L, MySeqList &result_L) con
   }
 
   //去除重复元素
-  result_L.remove_duplicates();
+  result_l.RemoveDuplicates();
 }
 
 /**
@@ -99,18 +99,18 @@ void MySeqList::intersect_set(const MySeqList &other_L, MySeqList &result_L) con
  * @param  result_L
  * *****************************************************************
  */
-void MySeqList::difference_set(const MySeqList &other_L, MySeqList &result_L) const {
+void MySeqList::DifferenceSet(const MySeqList &other_l, MySeqList &result_l) const {
   int i = 0, j = 0;
 
-  result_L.clear();
+  result_l.Clear();
 
-  while (i < this->m_n && j < other_L.m_n) {
+  while (i < this->m_len && j < other_l.m_len) {
 
-    if (this->m_elem[i] < other_L.m_elem[j]) {
+    if (this->m_elem[i] < other_l.m_elem[j]) {
       // 如果第一个数组的元素小于第二个数组的元素，添加到结果中
-      result_L.append(this->m_elem[i]);
+      result_l.Append(this->m_elem[i]);
       ++i;
-    } else if (this->m_elem[i] > other_L.m_elem[j]) {
+    } else if (this->m_elem[i] > other_l.m_elem[j]) {
       // 如果第一个数组的元素大于第二个数组的元素，移动第二个数组的指针
       ++j;
     } else {
@@ -120,13 +120,13 @@ void MySeqList::difference_set(const MySeqList &other_L, MySeqList &result_L) co
     }
   }
 
-  while (i < this->m_n) {
-    result_L.append(this->m_elem[i]);
+  while (i < this->m_len) {
+    result_l.Append(this->m_elem[i]);
     ++i;
   }
 
   //去除重复元素
-  result_L.remove_duplicates();
+  result_l.RemoveDuplicates();
 }
 
 /**
@@ -134,8 +134,8 @@ void MySeqList::difference_set(const MySeqList &other_L, MySeqList &result_L) co
  * @brief : 冒泡排序
  * *****************************************************************
  */
-void MySeqList::bubble_sort() {
-  int n = m_n;
+void MySeqList::BubbleSort() {
+  int n = m_len;
   bool swapped;
   for (int i = 0; i < n - 1; ++i) {
     swapped = false;
@@ -160,19 +160,19 @@ void MySeqList::bubble_sort() {
  * @brief : 去除重复元素
  * *****************************************************************
  */
-void MySeqList::remove_duplicates() {
-  if (m_n == 0) {
+void MySeqList::RemoveDuplicates() {
+  if (m_len == 0) {
     return; // 如果顺序表为空，则无需操作
   }
 
   int j = 0; // 用于追踪不重复元素的位置
 
-  for (int i = 1; i < m_n; ++i) {
+  for (int i = 1; i < m_len; ++i) {
     if (m_elem[j] != m_elem[i]) {
       m_elem[++j] = m_elem[i]; // 发现不同元素，则将其移动到下一个位置
     }
   }
-  m_n = j + 1; // 更新顺序表的大小
+  m_len = j + 1; // 更新顺序表的大小
 }
 
 /**
@@ -180,22 +180,22 @@ void MySeqList::remove_duplicates() {
  * @brief : 打印
  * *****************************************************************
  */
-void MySeqList::show() const {
+void MySeqList::Show() const {
   // 定义每行显示的最大元素数量
   const int elementsPerRow = 10;
   // 定义标号和元素的宽度
   const int labelWidth = 7;
   const int numberWidth = 5;
 
-  for (int i = 0; i < m_n; i += elementsPerRow) {
+  for (int i = 0; i < m_len; i += elementsPerRow) {
     // 打印当前行的标号
-    for (int j = i; j < i + elementsPerRow && j < m_n; ++j) {
+    for (int j = i; j < i + elementsPerRow && j < m_len; ++j) {
       cout << "[" << setw(labelWidth - 2) << j + 1 << "] ";
     }
     cout << "\n";
 
     // 打印当前行的元素
-    for (int j = i; j < i + elementsPerRow && j < m_n; ++j) {
+    for (int j = i; j < i + elementsPerRow && j < m_len; ++j) {
       cout << setw(numberWidth) << m_elem[j] << "   ";
     }
     cout << "\n";
