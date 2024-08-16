@@ -172,6 +172,12 @@ void InitSinglyLinkLIst(const int len, bu_tools::SinglyLinkList<int> &L) {
   }
 }
 
+/**
+ * *****************************************************************
+ * @brief : 随机生成多项式
+ * @param  P                
+ * *****************************************************************
+ */
 void randomPolynomial(bu_tools::Polynomial &P) {
   int n = GenerateRandomNumber03();
 

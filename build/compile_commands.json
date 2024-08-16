@@ -22,5 +22,11 @@
   "command": "/usr/bin/g++ -g -o list/linklist/CMakeFiles/test_singlylinklist.dir/test_singlylinklist.cpp.o -c /home/bzx/work_space/DataStructures/list/linklist/test_singlylinklist.cpp",
   "file": "/home/bzx/work_space/DataStructures/list/linklist/test_singlylinklist.cpp",
   "output": "list/linklist/CMakeFiles/test_singlylinklist.dir/test_singlylinklist.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o list/linklist/CMakeFiles/test_doublelinklist.dir/test_doublelinklist.cpp.o -c /home/bzx/work_space/DataStructures/list/linklist/test_doublelinklist.cpp",
+  "file": "/home/bzx/work_space/DataStructures/list/linklist/test_doublelinklist.cpp",
+  "output": "list/linklist/CMakeFiles/test_doublelinklist.dir/test_doublelinklist.cpp.o"
 }
 ]
