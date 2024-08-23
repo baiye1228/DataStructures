@@ -857,6 +857,37 @@ build stack/rebuild_cache: phony stack/CMakeFiles/rebuild_cache.util
 # /home/bzx/work_space/DataStructures/stack/CMakeLists.txt
 # =============================================================================
 
+# =============================================================================
+# Object build statements for EXECUTABLE target test_seqstack
+
+
+#############################################
+# Order-only phony target for test_seqstack
+
+build cmake_object_order_depends_target_test_seqstack: phony || .
+
+build stack/seqstack/CMakeFiles/test_seqstack.dir/test_seqstack.cpp.o: CXX_COMPILER__test_seqstack_unscanned_Debug /home/bzx/work_space/DataStructures/stack/seqstack/test_seqstack.cpp || cmake_object_order_depends_target_test_seqstack
+  DEP_FILE = stack/seqstack/CMakeFiles/test_seqstack.dir/test_seqstack.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = stack/seqstack/CMakeFiles/test_seqstack.dir
+  OBJECT_FILE_DIR = stack/seqstack/CMakeFiles/test_seqstack.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_seqstack
+
+
+#############################################
+# Link the executable stack/seqstack/test_seqstack
+
+build stack/seqstack/test_seqstack: CXX_EXECUTABLE_LINKER__test_seqstack_Debug stack/seqstack/CMakeFiles/test_seqstack.dir/test_seqstack.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = stack/seqstack/CMakeFiles/test_seqstack.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = stack/seqstack/test_seqstack
+  TARGET_PDB = test_seqstack.dbg
+
 
 #############################################
 # Utility command for package
@@ -920,6 +951,37 @@ build stack/seqstack/rebuild_cache: phony stack/seqstack/CMakeFiles/rebuild_cach
 # Write statements declared in CMakeLists.txt:
 # /home/bzx/work_space/DataStructures/stack/CMakeLists.txt
 # =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_linkstack
+
+
+#############################################
+# Order-only phony target for test_linkstack
+
+build cmake_object_order_depends_target_test_linkstack: phony || .
+
+build stack/linkstack/CMakeFiles/test_linkstack.dir/test_linkstack.cpp.o: CXX_COMPILER__test_linkstack_unscanned_Debug /home/bzx/work_space/DataStructures/stack/linkstack/test_linkstack.cpp || cmake_object_order_depends_target_test_linkstack
+  DEP_FILE = stack/linkstack/CMakeFiles/test_linkstack.dir/test_linkstack.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = stack/linkstack/CMakeFiles/test_linkstack.dir
+  OBJECT_FILE_DIR = stack/linkstack/CMakeFiles/test_linkstack.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_linkstack
+
+
+#############################################
+# Link the executable stack/linkstack/test_linkstack
+
+build stack/linkstack/test_linkstack: CXX_EXECUTABLE_LINKER__test_linkstack_Debug stack/linkstack/CMakeFiles/test_linkstack.dir/test_linkstack.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = stack/linkstack/CMakeFiles/test_linkstack.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = stack/linkstack/test_linkstack
+  TARGET_PDB = test_linkstack.dbg
 
 
 #############################################
@@ -985,7 +1047,11 @@ build stack/linkstack/rebuild_cache: phony stack/linkstack/CMakeFiles/rebuild_ca
 
 build test_doublelinklist: phony list/linklist/test_doublelinklist
 
+build test_linkstack: phony stack/linkstack/test_linkstack
+
 build test_seqlist: phony list/seqlist/test_seqlist
+
+build test_seqstack: phony stack/seqstack/test_seqstack
 
 build test_singlylinklist: phony list/linklist/test_singlylinklist
 
@@ -1032,14 +1098,14 @@ build stack/all: phony stack/seqstack/all stack/linkstack/all
 #############################################
 # Folder: /home/bzx/work_space/DataStructures/build/stack/linkstack
 
-build stack/linkstack/all: phony
+build stack/linkstack/all: phony stack/linkstack/test_linkstack
 
 # =============================================================================
 
 #############################################
 # Folder: /home/bzx/work_space/DataStructures/build/stack/seqstack
 
-build stack/seqstack/all: phony
+build stack/seqstack/all: phony stack/seqstack/test_seqstack
 
 # =============================================================================
 # Built-in targets

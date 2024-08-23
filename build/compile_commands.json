@@ -28,5 +28,17 @@
   "command": "/usr/bin/g++ -g -o list/linklist/CMakeFiles/test_doublelinklist.dir/test_doublelinklist.cpp.o -c /home/bzx/work_space/DataStructures/list/linklist/test_doublelinklist.cpp",
   "file": "/home/bzx/work_space/DataStructures/list/linklist/test_doublelinklist.cpp",
   "output": "list/linklist/CMakeFiles/test_doublelinklist.dir/test_doublelinklist.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o stack/seqstack/CMakeFiles/test_seqstack.dir/test_seqstack.cpp.o -c /home/bzx/work_space/DataStructures/stack/seqstack/test_seqstack.cpp",
+  "file": "/home/bzx/work_space/DataStructures/stack/seqstack/test_seqstack.cpp",
+  "output": "stack/seqstack/CMakeFiles/test_seqstack.dir/test_seqstack.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o stack/linkstack/CMakeFiles/test_linkstack.dir/test_linkstack.cpp.o -c /home/bzx/work_space/DataStructures/stack/linkstack/test_linkstack.cpp",
+  "file": "/home/bzx/work_space/DataStructures/stack/linkstack/test_linkstack.cpp",
+  "output": "stack/linkstack/CMakeFiles/test_linkstack.dir/test_linkstack.cpp.o"
 }
 ]

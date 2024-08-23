@@ -78,7 +78,7 @@
 					"source" : "list/seqlist",
 					"targetIndexes" : 
 					[
-						29
+						30
 					]
 				},
 				{
@@ -94,7 +94,7 @@
 					"targetIndexes" : 
 					[
 						28,
-						30
+						32
 					]
 				},
 				{
@@ -122,7 +122,11 @@
 					},
 					"parentIndex" : 4,
 					"projectIndex" : 0,
-					"source" : "stack/seqstack"
+					"source" : "stack/seqstack",
+					"targetIndexes" : 
+					[
+						31
+					]
 				},
 				{
 					"build" : "stack/linkstack",
@@ -133,7 +137,11 @@
 					},
 					"parentIndex" : 4,
 					"projectIndex" : 0,
-					"source" : "stack/linkstack"
+					"source" : "stack/linkstack",
+					"targetIndexes" : 
+					[
+						29
+					]
 				}
 			],
 			"name" : "Debug",
@@ -183,7 +191,9 @@
 						27,
 						28,
 						29,
-						30
+						30,
+						31,
+						32
 					]
 				}
 			],
@@ -393,10 +403,24 @@
 					"projectIndex" : 0
 				},
 				{
+					"directoryIndex" : 6,
+					"id" : "test_linkstack::@7079008ea83fd359d2d9",
+					"jsonFile" : "target-test_linkstack-Debug-4d552c6f4ed1fbf52724.json",
+					"name" : "test_linkstack",
+					"projectIndex" : 0
+				},
+				{
 					"directoryIndex" : 2,
 					"id" : "test_seqlist::@0b870398883c35ef26b6",
 					"jsonFile" : "target-test_seqlist-Debug-8b55c8ebbb26fecc34d3.json",
 					"name" : "test_seqlist",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test_seqstack::@de1fefbb156a5ed0f7a6",
+					"jsonFile" : "target-test_seqstack-Debug-b6a2f73715d421fce936.json",
+					"name" : "test_seqstack",
 					"projectIndex" : 0
 				},
 				{

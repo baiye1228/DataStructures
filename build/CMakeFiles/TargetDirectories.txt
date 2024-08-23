@@ -54,11 +54,13 @@
 /home/bzx/work_space/DataStructures/build/stack/CMakeFiles/test.dir
 /home/bzx/work_space/DataStructures/build/stack/CMakeFiles/edit_cache.dir
 /home/bzx/work_space/DataStructures/build/stack/CMakeFiles/rebuild_cache.dir
+/home/bzx/work_space/DataStructures/build/stack/seqstack/CMakeFiles/test_seqstack.dir
 /home/bzx/work_space/DataStructures/build/stack/seqstack/CMakeFiles/package.dir
 /home/bzx/work_space/DataStructures/build/stack/seqstack/CMakeFiles/package_source.dir
 /home/bzx/work_space/DataStructures/build/stack/seqstack/CMakeFiles/test.dir
 /home/bzx/work_space/DataStructures/build/stack/seqstack/CMakeFiles/edit_cache.dir
 /home/bzx/work_space/DataStructures/build/stack/seqstack/CMakeFiles/rebuild_cache.dir
+/home/bzx/work_space/DataStructures/build/stack/linkstack/CMakeFiles/test_linkstack.dir
 /home/bzx/work_space/DataStructures/build/stack/linkstack/CMakeFiles/package.dir
 /home/bzx/work_space/DataStructures/build/stack/linkstack/CMakeFiles/package_source.dir
 /home/bzx/work_space/DataStructures/build/stack/linkstack/CMakeFiles/test.dir

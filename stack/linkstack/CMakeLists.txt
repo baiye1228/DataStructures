@@ -1,0 +1,1 @@
+add_executable(test_linkstack test_linkstack.cpp)
