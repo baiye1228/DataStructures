@@ -40,5 +40,17 @@
   "command": "/usr/bin/g++ -g -o stack/linkstack/CMakeFiles/test_linkstack.dir/test_linkstack.cpp.o -c /home/bzx/work_space/DataStructures/stack/linkstack/test_linkstack.cpp",
   "file": "/home/bzx/work_space/DataStructures/stack/linkstack/test_linkstack.cpp",
   "output": "stack/linkstack/CMakeFiles/test_linkstack.dir/test_linkstack.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o queue/seqqueue/CMakeFiles/test_seqqueue.dir/test_seqqueue.cpp.o -c /home/bzx/work_space/DataStructures/queue/seqqueue/test_seqqueue.cpp",
+  "file": "/home/bzx/work_space/DataStructures/queue/seqqueue/test_seqqueue.cpp",
+  "output": "queue/seqqueue/CMakeFiles/test_seqqueue.dir/test_seqqueue.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o queue/linkqueue/CMakeFiles/test_linkqueue.dir/test_linkqueue.cpp.o -c /home/bzx/work_space/DataStructures/queue/linkqueue/test_linkqueue.cpp",
+  "file": "/home/bzx/work_space/DataStructures/queue/linkqueue/test_linkqueue.cpp",
+  "output": "queue/linkqueue/CMakeFiles/test_linkqueue.dir/test_linkqueue.cpp.o"
 }
 ]
