@@ -34,21 +34,7 @@ bool Equal(const T &l_e, const T &r_e) {
   return false;
 }
 
-/**
- * *****************************************************************
- * @brief : 双链表节点类
- * @tparam T
- * *****************************************************************
- */
-template <typename T>
-class DNode {
-public:
-  T m_data;          // 节点存储的数据
-  DNode<T> *m_prior; // 指向前一个节点的指针
-  DNode<T> *m_next;  // 指向下一个节点的指针
 
-  DNode(const T &val) : m_data(val), m_prior(nullptr), m_next(nullptr) {}
-};
 
 /**
  * *****************************************************************
@@ -63,9 +49,18 @@ private:
   void CopyList(const DoubleLinkList<T> &other_l);
 
 protected:
-  typedef DNode<T> *DNodePointer;
+  class Node {
+  public:
+    T m_data;         // 节点存储的数据
+    Node *m_prior; // 指向前一个节点的指针
+    Node *m_next;  // 指向下一个节点的指针
 
-  DNodePointer m_head; // 链表的头指针，指向第一个节点
+    Node(const T &val) : m_data(val), m_prior(nullptr), m_next(nullptr) {}
+  };
+
+  typedef Node *NodePointer;
+
+  NodePointer m_head; // 链表的头指针，指向第一个节点
   int m_len;          // 链表中节点的个数
 
 public:
@@ -82,7 +77,6 @@ public:
   void Append(const T&e);
   bool Insert(int index,const T& e);
   bool GetElem(int index,T&e)const;
-  DNodePointer GetHead()const;
   int GetLength()const;
   bool IsEmpty()const;
   bool NextElem(const T&e,T& next_e)const;
@@ -110,7 +104,7 @@ public:
 template <typename T>
 inline void DoubleLinkList<T>::CopyList(const DoubleLinkList<T> &other_l) {
   if(other_l.m_head){
-    DNodePointer current=other_l.m_head;
+    NodePointer current=other_l.m_head;
     
     do {
       T e=current->m_data;
@@ -130,10 +124,10 @@ inline void DoubleLinkList<T>::CopyList(const DoubleLinkList<T> &other_l) {
 template <typename T>
 inline void DoubleLinkList<T>::Clear() {
   if (m_head) {
-    DNodePointer current = m_head;
+    NodePointer current = m_head;
 
     do {
-      DNodePointer temp = current;
+      NodePointer temp = current;
       current = current->m_next;
       delete temp;
     } while (current != m_head);
@@ -157,7 +151,7 @@ inline bool DoubleLinkList<T>::DeleteElem(const T &e) {
     return false;
   }
 
-  DNodePointer current=m_head;
+  NodePointer current=m_head;
 
   do{
     if(current->m_data==e){
@@ -196,7 +190,7 @@ inline bool DoubleLinkList<T>::DeleteElem(const T &e) {
  */
 template <typename T>
 inline void DoubleLinkList<T>::Append(const T &e) {
-  DNodePointer new_node=new DNode<T>(e);
+  NodePointer new_node=new Node(e);
 
   if(!m_head){
     
@@ -206,7 +200,7 @@ inline void DoubleLinkList<T>::Append(const T &e) {
     m_len=1;
   }
   else{
-    DNodePointer tail=m_head->m_prior;
+    NodePointer tail=m_head->m_prior;
     tail->m_next=new_node;
     new_node->m_prior=tail;
     new_node->m_next=m_head;
@@ -233,7 +227,7 @@ inline bool DoubleLinkList<T>::Insert(int index, const T &e) {
     return false;
   }
 
-  DNodePointer new_node=new DNode<T>(e);
+  NodePointer new_node=new Node(e);
 
   // 在头部插入新节点
   if(index==1){
@@ -244,7 +238,7 @@ inline bool DoubleLinkList<T>::Insert(int index, const T &e) {
       m_head->m_next=m_head;
       m_head->m_prior=m_head;
     } else { // 链表不为空时
-    DNodePointer tail=m_head->m_prior;
+    NodePointer tail=m_head->m_prior;
 
     new_node->m_next=m_head;
     new_node->m_prior=tail;
@@ -254,7 +248,7 @@ inline bool DoubleLinkList<T>::Insert(int index, const T &e) {
     }
   }
   else{
-    DNodePointer current=m_head;
+    NodePointer current=m_head;
 
     for(int i=0;i<index-1;++i){
       current = current->m_next; // 移动到指定位置前一个节点
@@ -286,7 +280,7 @@ inline bool DoubleLinkList<T>::GetElem(int index, T &e) const {
     return false;
   }
 
-  DNodePointer current=m_head;
+  NodePointer current=m_head;
   for(int i=0;i<index;++i){
     current=current->m_next;
   }
@@ -295,17 +289,17 @@ inline bool DoubleLinkList<T>::GetElem(int index, T &e) const {
   return true;
 }
 
-/**
- * *****************************************************************
- * @brief : 取循环双链表的头指针
- * @tparam T 
- * @return DoubleLinkList<T>::DNodePointer
- * *****************************************************************
- */
-template <typename T>
-inline typename  DoubleLinkList<T>::DNodePointer DoubleLinkList<T>::GetHead() const {
-  return m_head;
-}
+// /**
+//  * *****************************************************************
+//  * @brief : 取循环双链表的头指针
+//  * @tparam T 
+//  * @return DoubleLinkList<T>::DNodePointer
+//  * *****************************************************************
+//  */
+// template <typename T>
+// inline typename  DoubleLinkList<T>::DNodePointer DoubleLinkList<T>::GetHead() const {
+//   return m_head;
+// }
 
 /**
  * *****************************************************************
@@ -344,7 +338,7 @@ inline bool DoubleLinkList<T>::IsEmpty() const {
  */
 template <typename T>
 inline bool DoubleLinkList<T>::NextElem(const T &e, T &next_e) const {
-  DNodePointer current=m_head;
+  NodePointer current=m_head;
 
   while(current&&current->m_next!=m_head&&current->m_data!=e){
     current=current->m_next;
@@ -371,7 +365,7 @@ inline bool DoubleLinkList<T>::NextElem(const T &e, T &next_e) const {
  */
 template <typename T>
 inline bool DoubleLinkList<T>::PriorElem(const T &e, T &prior_e) const {
-  DNodePointer current = m_head;
+  NodePointer current = m_head;
 
   while (current && current->m_next != m_head && current->m_data != e) {
     current = current->m_next;

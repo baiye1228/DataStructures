@@ -47,11 +47,64 @@ public:
   int GetStackSize() const;
   bool IsEmpty() const;
   bool IsFull() const;
-  SeqStack<T>& operator=(const SeqStack<T> &right_s);
+  SeqStack<T> &operator=(const SeqStack<T> &right_s);
   bool Pop(T &e);
   bool Pop();
   bool Push(const T &e);
-  bool GetElem(int index,T&e)const;
+  // bool GetElem(int index,T&e)const;
+
+  /*****************************************************************
+
+  嵌套迭代器类
+
+  *****************************************************************/
+  class Iterator {
+  private:
+    T *ptr;
+
+  public:
+    Iterator(T *p) : ptr(p) {}
+
+    T &operator*() const {
+      return *ptr;
+    }
+
+    T *operator->() const {
+      return ptr;
+    }
+
+    // 前置递增
+    Iterator &operator++() {
+      --ptr;
+      return *this;
+    }
+
+    // 后置递增
+    Iterator operator++(int) {
+      Iterator temp = *this;
+      --ptr;
+      return temp;
+    }
+
+    bool operator==(const Iterator &other) const {
+      return ptr == other.ptr;
+    }
+
+    bool operator!=(const Iterator &other) const {
+      return ptr != other.ptr;
+    }
+  };
+
+  Iterator begin()const{
+    return Iterator(&m_base[m_top]);
+  }
+
+  Iterator end()const{
+    return Iterator(&m_base[-1]);
+  }
+
+
+
 };
 
 /****************************************************************************************************
@@ -69,12 +122,12 @@ public:
  */
 template <typename T>
 inline SeqStack<T>::SeqStack(const SeqStack<T> &other_s) {
-  m_capacity=other_s.m_capacity;
-  m_top=other_s.m_top;
+  m_capacity = other_s.m_capacity;
+  m_top = other_s.m_top;
 
-  m_base=new T[m_capacity];
-  for(int i=0;i<=m_top;++i){
-    m_base[i]=other_s.m_base[i];
+  m_base = new T[m_capacity];
+  for (int i = 0; i <= m_top; ++i) {
+    m_base[i] = other_s.m_base[i];
   }
 }
 
@@ -167,7 +220,7 @@ inline bool SeqStack<T>::IsFull() const {
  * *****************************************************************
  */
 template <typename T>
-inline SeqStack<T>& SeqStack<T>::operator=(const SeqStack<T> &right_s) {
+inline SeqStack<T> &SeqStack<T>::operator=(const SeqStack<T> &right_s) {
   if (this != &right_s) {
     //释放原有的内容
     delete[] m_base;
@@ -209,9 +262,9 @@ inline bool SeqStack<T>::Pop(T &e) {
 /**
  * *****************************************************************
  * @brief : 弹栈
- * @tparam T 
- * @return true             
- * @return false            
+ * @tparam T
+ * @return true
+ * @return false
  * *****************************************************************
  */
 template <typename T>
@@ -241,25 +294,25 @@ inline bool SeqStack<T>::Push(const T &e) {
   return true;
 }
 
-/**
- * *****************************************************************
- * @brief : 获取栈中的元素
- * @tparam T 
- * @param  index            
- * @param  e                
- * @return true             
- * @return false            
- * *****************************************************************
- */
-template <typename T>
-inline bool SeqStack<T>::GetElem(int index, T &e) const {
-  if(index<0||index>m_top){
-    return false;
-  }
+// /**
+//  * *****************************************************************
+//  * @brief : 获取栈中的元素
+//  * @tparam T
+//  * @param  index
+//  * @param  e
+//  * @return true
+//  * @return false
+//  * *****************************************************************
+//  */
+// template <typename T>
+// inline bool SeqStack<T>::GetElem(int index, T &e) const {
+//   if(index<0||index>m_top){
+//     return false;
+//   }
 
-  e=m_base[index];
-  return true;
-}
+//   e=m_base[index];
+//   return true;
+// }
 
 } // namespace bu_tools
 

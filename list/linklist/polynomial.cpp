@@ -54,7 +54,7 @@ Polynomial::Polynomial(const Polynomial &other_p) {
 }
 
 void Polynomial::AddTerm(const Term &t) {
-  SNodePointer new_node = new SNode(t);
+  NodePointer new_node = new Node(t);
 
   // 如果链表为空或新项指数大于头结点指数，插入到链表头部
   if (m_head == nullptr || m_head->m_data.m_expn < t.m_expn) {
@@ -62,8 +62,8 @@ void Polynomial::AddTerm(const Term &t) {
     m_head = new_node;
     ++m_len;
   } else {
-    SNodePointer current = m_head;
-    SNodePointer prev = nullptr;
+    NodePointer current = m_head;
+    NodePointer prev = nullptr;
 
     //找到正确的插入位置
     while (current != nullptr && current->m_data.m_expn > t.m_expn) {
@@ -104,8 +104,8 @@ Polynomial Polynomial::operator+(const Polynomial &other_p) {
   Polynomial result_p;
   Term temp_t;
 
-  SNodePointer p1 = this->m_head;
-  SNodePointer p2 = other_p.m_head;
+  NodePointer p1 = this->m_head;
+  NodePointer p2 = other_p.m_head;
 
   while (p1 != nullptr && p2 != nullptr) {
     if (p1->m_data.m_expn > p2->m_data.m_expn) {
@@ -157,7 +157,7 @@ Polynomial Polynomial::operator+(const Polynomial &other_p) {
 Polynomial Polynomial::operator-(const Polynomial &other_p) {
   Polynomial negatedOther;
   Term temp_t;
-  SNodePointer current = other_p.m_head;
+  NodePointer current = other_p.m_head;
 
   // 对other多项式的每一项取反
   while (current != nullptr) {
@@ -203,7 +203,7 @@ void Polynomial::Read(istream &in) {
  * *****************************************************************
  */
 void Polynomial::Display(ostream &out) const {
-  SNodePointer current = m_head;
+  NodePointer current = m_head;
   if (!m_head) {
     out << "\n该多项式为空！！！\n";
     return;

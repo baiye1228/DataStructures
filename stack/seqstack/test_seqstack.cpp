@@ -599,10 +599,8 @@ void ShowSeqStack(const bu_tools::SeqStack<int> &S) {
   }
 
   cout << "\n顺序栈如下：\n";
-  int e;
-  for (int i = S.GetLength() - 1; i >= 0; --i) {
-    S.GetElem(i, e);
-    cout << setw(5) << e << " ";
+  for(auto it=S.begin();it!=S.end();++it){
+    cout<<setw(5)<<*it<<"  ";
   }
   cout << "\n";
   cout << "   ^\n";

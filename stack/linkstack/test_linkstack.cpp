@@ -12,12 +12,12 @@
  */
 
 #include "linkstack.h"
-#include <iomanip>
+//#include <iomanip>
 #include <iostream>
 
 using std::cin;
 using std::cout;
-using std::setw;
+//using std::setw;
 
 bu_tools::LinkStack<int> S;
 
@@ -417,11 +417,8 @@ void ShowLinkStack(const bu_tools::LinkStack<int> &S) {
   }
 
   cout << "\n链栈如下：\n";
-  int e;
-  int len = S.GetLength();
-  for (int i = 1; i <= len; ++i) {
-    S.GetElem(i, e);
-    cout << "[" << e << "] -> ";
+  for(auto it=S.begin();it!=S.end();++it){
+    cout << "[" << *it << "] -> ";
   }
   cout << "nullptr\n";
   cout << " ^\n";

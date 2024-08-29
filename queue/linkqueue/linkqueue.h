@@ -87,6 +87,13 @@ public:
       }
       return *this;
     }
+    Iterator operator++(int) {
+      Iterator temp = *this; // 保存当前迭代器状态的副本
+      if (current) {
+        current = current->next; // 假设 current 是指向节点的指针
+      }
+      return temp; // 返回递增前的副本
+    }
 
     bool operator==(const Iterator &other) const {
       return current == other.current;
