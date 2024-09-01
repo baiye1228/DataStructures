@@ -10,6 +10,9 @@ add_subdirectory(stack)
 # 队列相关子目录
 add_subdirectory(queue)
 
+#稀疏矩阵相关子目录
+add_subdirectory(matrix)
+
 
 include(CTest)
 enable_testing()

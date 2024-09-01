@@ -7,3 +7,4 @@
 subdirs("list")
 subdirs("stack")
 subdirs("queue")
+subdirs("matrix")

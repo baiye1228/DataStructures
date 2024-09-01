@@ -52,5 +52,17 @@
   "command": "/usr/bin/g++ -g -o queue/linkqueue/CMakeFiles/test_linkqueue.dir/test_linkqueue.cpp.o -c /home/bzx/work_space/DataStructures/queue/linkqueue/test_linkqueue.cpp",
   "file": "/home/bzx/work_space/DataStructures/queue/linkqueue/test_linkqueue.cpp",
   "output": "queue/linkqueue/CMakeFiles/test_linkqueue.dir/test_linkqueue.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o matrix/tuple/CMakeFiles/test_tripletsparsematrix.dir/test_tripletsparsematrix.cpp.o -c /home/bzx/work_space/DataStructures/matrix/tuple/test_tripletsparsematrix.cpp",
+  "file": "/home/bzx/work_space/DataStructures/matrix/tuple/test_tripletsparsematrix.cpp",
+  "output": "matrix/tuple/CMakeFiles/test_tripletsparsematrix.dir/test_tripletsparsematrix.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o matrix/cross/CMakeFiles/test_crosssparsematrix.dir/test_crosssparsematrix.cpp.o -c /home/bzx/work_space/DataStructures/matrix/cross/test_crosssparsematrix.cpp",
+  "file": "/home/bzx/work_space/DataStructures/matrix/cross/test_crosssparsematrix.cpp",
+  "output": "matrix/cross/CMakeFiles/test_crosssparsematrix.dir/test_crosssparsematrix.cpp.o"
 }
 ]

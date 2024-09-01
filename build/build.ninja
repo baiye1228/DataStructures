@@ -1297,7 +1297,263 @@ build queue/linkqueue/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build queue/linkqueue/rebuild_cache: phony queue/linkqueue/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/bzx/work_space/DataStructures/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for package
+
+build matrix/CMakeFiles/package.util: CUSTOM_COMMAND matrix/all
+  COMMAND = cd /home/bzx/work_space/DataStructures/build && /usr/local/bin/cpack --config ./CPackConfig.cmake
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build matrix/package: phony matrix/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build matrix/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build && /usr/local/bin/cpack --config ./CPackSourceConfig.cmake /home/bzx/work_space/DataStructures/build/CPackSourceConfig.cmake
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build matrix/package_source: phony matrix/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for test
+
+build matrix/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build/matrix && /usr/local/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build matrix/test: phony matrix/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build matrix/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build/matrix && /usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build matrix/edit_cache: phony matrix/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build matrix/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build/matrix && /usr/local/bin/cmake --regenerate-during-build -S/home/bzx/work_space/DataStructures -B/home/bzx/work_space/DataStructures/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build matrix/rebuild_cache: phony matrix/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/bzx/work_space/DataStructures/matrix/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_tripletsparsematrix
+
+
+#############################################
+# Order-only phony target for test_tripletsparsematrix
+
+build cmake_object_order_depends_target_test_tripletsparsematrix: phony || .
+
+build matrix/tuple/CMakeFiles/test_tripletsparsematrix.dir/test_tripletsparsematrix.cpp.o: CXX_COMPILER__test_tripletsparsematrix_unscanned_Debug /home/bzx/work_space/DataStructures/matrix/tuple/test_tripletsparsematrix.cpp || cmake_object_order_depends_target_test_tripletsparsematrix
+  DEP_FILE = matrix/tuple/CMakeFiles/test_tripletsparsematrix.dir/test_tripletsparsematrix.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = matrix/tuple/CMakeFiles/test_tripletsparsematrix.dir
+  OBJECT_FILE_DIR = matrix/tuple/CMakeFiles/test_tripletsparsematrix.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_tripletsparsematrix
+
+
+#############################################
+# Link the executable matrix/tuple/test_tripletsparsematrix
+
+build matrix/tuple/test_tripletsparsematrix: CXX_EXECUTABLE_LINKER__test_tripletsparsematrix_Debug matrix/tuple/CMakeFiles/test_tripletsparsematrix.dir/test_tripletsparsematrix.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = matrix/tuple/CMakeFiles/test_tripletsparsematrix.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = matrix/tuple/test_tripletsparsematrix
+  TARGET_PDB = test_tripletsparsematrix.dbg
+
+
+#############################################
+# Utility command for package
+
+build matrix/tuple/CMakeFiles/package.util: CUSTOM_COMMAND matrix/tuple/all
+  COMMAND = cd /home/bzx/work_space/DataStructures/build && /usr/local/bin/cpack --config ./CPackConfig.cmake
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build matrix/tuple/package: phony matrix/tuple/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build matrix/tuple/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build && /usr/local/bin/cpack --config ./CPackSourceConfig.cmake /home/bzx/work_space/DataStructures/build/CPackSourceConfig.cmake
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build matrix/tuple/package_source: phony matrix/tuple/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for test
+
+build matrix/tuple/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build/matrix/tuple && /usr/local/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build matrix/tuple/test: phony matrix/tuple/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build matrix/tuple/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build/matrix/tuple && /usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build matrix/tuple/edit_cache: phony matrix/tuple/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build matrix/tuple/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build/matrix/tuple && /usr/local/bin/cmake --regenerate-during-build -S/home/bzx/work_space/DataStructures -B/home/bzx/work_space/DataStructures/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build matrix/tuple/rebuild_cache: phony matrix/tuple/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/bzx/work_space/DataStructures/matrix/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_crosssparsematrix
+
+
+#############################################
+# Order-only phony target for test_crosssparsematrix
+
+build cmake_object_order_depends_target_test_crosssparsematrix: phony || .
+
+build matrix/cross/CMakeFiles/test_crosssparsematrix.dir/test_crosssparsematrix.cpp.o: CXX_COMPILER__test_crosssparsematrix_unscanned_Debug /home/bzx/work_space/DataStructures/matrix/cross/test_crosssparsematrix.cpp || cmake_object_order_depends_target_test_crosssparsematrix
+  DEP_FILE = matrix/cross/CMakeFiles/test_crosssparsematrix.dir/test_crosssparsematrix.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = matrix/cross/CMakeFiles/test_crosssparsematrix.dir
+  OBJECT_FILE_DIR = matrix/cross/CMakeFiles/test_crosssparsematrix.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_crosssparsematrix
+
+
+#############################################
+# Link the executable matrix/cross/test_crosssparsematrix
+
+build matrix/cross/test_crosssparsematrix: CXX_EXECUTABLE_LINKER__test_crosssparsematrix_Debug matrix/cross/CMakeFiles/test_crosssparsematrix.dir/test_crosssparsematrix.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = matrix/cross/CMakeFiles/test_crosssparsematrix.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = matrix/cross/test_crosssparsematrix
+  TARGET_PDB = test_crosssparsematrix.dbg
+
+
+#############################################
+# Utility command for package
+
+build matrix/cross/CMakeFiles/package.util: CUSTOM_COMMAND matrix/cross/all
+  COMMAND = cd /home/bzx/work_space/DataStructures/build && /usr/local/bin/cpack --config ./CPackConfig.cmake
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build matrix/cross/package: phony matrix/cross/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build matrix/cross/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build && /usr/local/bin/cpack --config ./CPackSourceConfig.cmake /home/bzx/work_space/DataStructures/build/CPackSourceConfig.cmake
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build matrix/cross/package_source: phony matrix/cross/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for test
+
+build matrix/cross/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build/matrix/cross && /usr/local/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build matrix/cross/test: phony matrix/cross/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build matrix/cross/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build/matrix/cross && /usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build matrix/cross/edit_cache: phony matrix/cross/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build matrix/cross/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/bzx/work_space/DataStructures/build/matrix/cross && /usr/local/bin/cmake --regenerate-during-build -S/home/bzx/work_space/DataStructures -B/home/bzx/work_space/DataStructures/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build matrix/cross/rebuild_cache: phony matrix/cross/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
+
+build test_crosssparsematrix: phony matrix/cross/test_crosssparsematrix
 
 build test_doublelinklist: phony list/linklist/test_doublelinklist
 
@@ -1313,6 +1569,8 @@ build test_seqstack: phony stack/seqstack/test_seqstack
 
 build test_singlylinklist: phony list/linklist/test_singlylinklist
 
+build test_tripletsparsematrix: phony matrix/tuple/test_tripletsparsematrix
+
 # =============================================================================
 # Folder targets.
 
@@ -1321,7 +1579,7 @@ build test_singlylinklist: phony list/linklist/test_singlylinklist
 #############################################
 # Folder: /home/bzx/work_space/DataStructures/build
 
-build all: phony list/all stack/all queue/all
+build all: phony list/all stack/all queue/all matrix/all
 
 # =============================================================================
 
@@ -1343,6 +1601,27 @@ build list/linklist/all: phony list/linklist/test_singlylinklist list/linklist/t
 # Folder: /home/bzx/work_space/DataStructures/build/list/seqlist
 
 build list/seqlist/all: phony list/seqlist/test_seqlist
+
+# =============================================================================
+
+#############################################
+# Folder: /home/bzx/work_space/DataStructures/build/matrix
+
+build matrix/all: phony matrix/tuple/all matrix/cross/all
+
+# =============================================================================
+
+#############################################
+# Folder: /home/bzx/work_space/DataStructures/build/matrix/cross
+
+build matrix/cross/all: phony matrix/cross/test_crosssparsematrix
+
+# =============================================================================
+
+#############################################
+# Folder: /home/bzx/work_space/DataStructures/build/matrix/tuple
+
+build matrix/tuple/all: phony matrix/tuple/test_tripletsparsematrix
 
 # =============================================================================
 
@@ -1393,14 +1672,14 @@ build stack/seqstack/all: phony stack/seqstack/test_seqstack
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/bzx/work_space/DataStructures/CMakeLists.txt /home/bzx/work_space/DataStructures/list/CMakeLists.txt /home/bzx/work_space/DataStructures/list/linklist/CMakeLists.txt /home/bzx/work_space/DataStructures/list/seqlist/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/linkqueue/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/seqqueue/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/linkstack/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/seqstack/CMakeLists.txt /usr/local/share/cmake-3.29/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.29/Modules/CMakeDependentOption.cmake /usr/local/share/cmake-3.29/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.29/Modules/CPack.cmake /usr/local/share/cmake-3.29/Modules/CPackComponent.cmake /usr/local/share/cmake-3.29/Modules/CTest.cmake /usr/local/share/cmake-3.29/Modules/CTestTargets.cmake /usr/local/share/cmake-3.29/Modules/CTestUseLaunchers.cmake /usr/local/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.29/Modules/DartConfiguration.tcl.in /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-Initialize.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.29/Modules/Platform/UnixPaths.cmake /usr/local/share/cmake-3.29/Templates/CPackConfig.cmake.in /usr/local/vcpkg/scripts/buildsystems/vcpkg.cmake CMakeCache.txt CMakeFiles/3.29.3/CMakeCCompiler.cmake CMakeFiles/3.29.3/CMakeCXXCompiler.cmake CMakeFiles/3.29.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/bzx/work_space/DataStructures/CMakeLists.txt /home/bzx/work_space/DataStructures/list/CMakeLists.txt /home/bzx/work_space/DataStructures/list/linklist/CMakeLists.txt /home/bzx/work_space/DataStructures/list/seqlist/CMakeLists.txt /home/bzx/work_space/DataStructures/matrix/CMakeLists.txt /home/bzx/work_space/DataStructures/matrix/cross/CMakeLists.txt /home/bzx/work_space/DataStructures/matrix/tuple/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/linkqueue/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/seqqueue/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/linkstack/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/seqstack/CMakeLists.txt /usr/local/share/cmake-3.29/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.29/Modules/CMakeDependentOption.cmake /usr/local/share/cmake-3.29/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.29/Modules/CPack.cmake /usr/local/share/cmake-3.29/Modules/CPackComponent.cmake /usr/local/share/cmake-3.29/Modules/CTest.cmake /usr/local/share/cmake-3.29/Modules/CTestTargets.cmake /usr/local/share/cmake-3.29/Modules/CTestUseLaunchers.cmake /usr/local/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.29/Modules/DartConfiguration.tcl.in /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-Initialize.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.29/Modules/Platform/UnixPaths.cmake /usr/local/share/cmake-3.29/Templates/CPackConfig.cmake.in /usr/local/vcpkg/scripts/buildsystems/vcpkg.cmake CMakeCache.txt CMakeFiles/3.29.3/CMakeCCompiler.cmake CMakeFiles/3.29.3/CMakeCXXCompiler.cmake CMakeFiles/3.29.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/bzx/work_space/DataStructures/CMakeLists.txt /home/bzx/work_space/DataStructures/list/CMakeLists.txt /home/bzx/work_space/DataStructures/list/linklist/CMakeLists.txt /home/bzx/work_space/DataStructures/list/seqlist/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/linkqueue/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/seqqueue/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/linkstack/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/seqstack/CMakeLists.txt /usr/local/share/cmake-3.29/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.29/Modules/CMakeDependentOption.cmake /usr/local/share/cmake-3.29/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.29/Modules/CPack.cmake /usr/local/share/cmake-3.29/Modules/CPackComponent.cmake /usr/local/share/cmake-3.29/Modules/CTest.cmake /usr/local/share/cmake-3.29/Modules/CTestTargets.cmake /usr/local/share/cmake-3.29/Modules/CTestUseLaunchers.cmake /usr/local/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.29/Modules/DartConfiguration.tcl.in /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-Initialize.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.29/Modules/Platform/UnixPaths.cmake /usr/local/share/cmake-3.29/Templates/CPackConfig.cmake.in /usr/local/vcpkg/scripts/buildsystems/vcpkg.cmake CMakeCache.txt CMakeFiles/3.29.3/CMakeCCompiler.cmake CMakeFiles/3.29.3/CMakeCXXCompiler.cmake CMakeFiles/3.29.3/CMakeSystem.cmake: phony
+build /home/bzx/work_space/DataStructures/CMakeLists.txt /home/bzx/work_space/DataStructures/list/CMakeLists.txt /home/bzx/work_space/DataStructures/list/linklist/CMakeLists.txt /home/bzx/work_space/DataStructures/list/seqlist/CMakeLists.txt /home/bzx/work_space/DataStructures/matrix/CMakeLists.txt /home/bzx/work_space/DataStructures/matrix/cross/CMakeLists.txt /home/bzx/work_space/DataStructures/matrix/tuple/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/linkqueue/CMakeLists.txt /home/bzx/work_space/DataStructures/queue/seqqueue/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/linkstack/CMakeLists.txt /home/bzx/work_space/DataStructures/stack/seqstack/CMakeLists.txt /usr/local/share/cmake-3.29/Modules/CMakeCInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeCXXInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake /usr/local/share/cmake-3.29/Modules/CMakeDependentOption.cmake /usr/local/share/cmake-3.29/Modules/CMakeGenericSystem.cmake /usr/local/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake /usr/local/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake /usr/local/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/share/cmake-3.29/Modules/CPack.cmake /usr/local/share/cmake-3.29/Modules/CPackComponent.cmake /usr/local/share/cmake-3.29/Modules/CTest.cmake /usr/local/share/cmake-3.29/Modules/CTestTargets.cmake /usr/local/share/cmake-3.29/Modules/CTestUseLaunchers.cmake /usr/local/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU-C.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake /usr/local/share/cmake-3.29/Modules/Compiler/GNU.cmake /usr/local/share/cmake-3.29/Modules/DartConfiguration.tcl.in /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU-C.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU-CXX.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-GNU.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux-Initialize.cmake /usr/local/share/cmake-3.29/Modules/Platform/Linux.cmake /usr/local/share/cmake-3.29/Modules/Platform/UnixPaths.cmake /usr/local/share/cmake-3.29/Templates/CPackConfig.cmake.in /usr/local/vcpkg/scripts/buildsystems/vcpkg.cmake CMakeCache.txt CMakeFiles/3.29.3/CMakeCCompiler.cmake CMakeFiles/3.29.3/CMakeCXXCompiler.cmake CMakeFiles/3.29.3/CMakeSystem.cmake: phony
 
 
 #############################################

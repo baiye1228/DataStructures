@@ -1,0 +1,1 @@
+add_executable(test_tripletsparsematrix test_tripletsparsematrix.cpp)
