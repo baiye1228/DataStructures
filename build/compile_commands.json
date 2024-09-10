@@ -64,5 +64,11 @@
   "command": "/usr/bin/g++ -g -o matrix/cross/CMakeFiles/test_crosssparsematrix.dir/test_crosssparsematrix.cpp.o -c /home/bzx/work_space/DataStructures/matrix/cross/test_crosssparsematrix.cpp",
   "file": "/home/bzx/work_space/DataStructures/matrix/cross/test_crosssparsematrix.cpp",
   "output": "matrix/cross/CMakeFiles/test_crosssparsematrix.dir/test_crosssparsematrix.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o tree/CMakeFiles/test_seqbinarytree.dir/test_seqbinarytree.cpp.o -c /home/bzx/work_space/DataStructures/tree/test_seqbinarytree.cpp",
+  "file": "/home/bzx/work_space/DataStructures/tree/test_seqbinarytree.cpp",
+  "output": "tree/CMakeFiles/test_seqbinarytree.dir/test_seqbinarytree.cpp.o"
 }
 ]

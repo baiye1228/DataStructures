@@ -100,3 +100,9 @@
 /home/bzx/work_space/DataStructures/build/matrix/cross/CMakeFiles/test.dir
 /home/bzx/work_space/DataStructures/build/matrix/cross/CMakeFiles/edit_cache.dir
 /home/bzx/work_space/DataStructures/build/matrix/cross/CMakeFiles/rebuild_cache.dir
+/home/bzx/work_space/DataStructures/build/tree/CMakeFiles/test_seqbinarytree.dir
+/home/bzx/work_space/DataStructures/build/tree/CMakeFiles/package.dir
+/home/bzx/work_space/DataStructures/build/tree/CMakeFiles/package_source.dir
+/home/bzx/work_space/DataStructures/build/tree/CMakeFiles/test.dir
+/home/bzx/work_space/DataStructures/build/tree/CMakeFiles/edit_cache.dir
+/home/bzx/work_space/DataStructures/build/tree/CMakeFiles/rebuild_cache.dir

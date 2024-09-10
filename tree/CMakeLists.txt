@@ -1,0 +1,2 @@
+#测试顺序存储二叉树
+add_executable(test_seqbinarytree test_seqbinarytree.cpp)

@@ -434,7 +434,7 @@ inline bool TripletSparseMatrix<T>::GetValue(int r, int c, T &e) const {
       return true;
     }
   }
-
+  e=T();
   return false;
 }
 

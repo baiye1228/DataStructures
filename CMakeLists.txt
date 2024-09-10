@@ -13,6 +13,9 @@ add_subdirectory(queue)
 #稀疏矩阵相关子目录
 add_subdirectory(matrix)
 
+#二叉树相关子目录
+add_subdirectory(tree)
+
 
 include(CTest)
 enable_testing()

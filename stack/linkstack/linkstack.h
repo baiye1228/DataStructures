@@ -95,7 +95,7 @@ public:
   public:
     Iterator(NodePointer node) : current(node) {}
 
-    T &operator*() {
+    T &operator*() const{
       return current->m_data;
     }
 
