@@ -1556,35 +1556,66 @@ build matrix/cross/rebuild_cache: phony matrix/cross/CMakeFiles/rebuild_cache.ut
 # =============================================================================
 
 # =============================================================================
-# Object build statements for EXECUTABLE target test_seqbinarytree
+# Object build statements for EXECUTABLE target test_basebinarytree
 
 
 #############################################
-# Order-only phony target for test_seqbinarytree
+# Order-only phony target for test_basebinarytree
 
-build cmake_object_order_depends_target_test_seqbinarytree: phony || .
+build cmake_object_order_depends_target_test_basebinarytree: phony || .
 
-build tree/CMakeFiles/test_seqbinarytree.dir/test_seqbinarytree.cpp.o: CXX_COMPILER__test_seqbinarytree_unscanned_Debug /home/bzx/work_space/DataStructures/tree/test_seqbinarytree.cpp || cmake_object_order_depends_target_test_seqbinarytree
-  DEP_FILE = tree/CMakeFiles/test_seqbinarytree.dir/test_seqbinarytree.cpp.o.d
+build tree/CMakeFiles/test_basebinarytree.dir/test_basebinarytree.cpp.o: CXX_COMPILER__test_basebinarytree_unscanned_Debug /home/bzx/work_space/DataStructures/tree/test_basebinarytree.cpp || cmake_object_order_depends_target_test_basebinarytree
+  DEP_FILE = tree/CMakeFiles/test_basebinarytree.dir/test_basebinarytree.cpp.o.d
   FLAGS = -g
-  OBJECT_DIR = tree/CMakeFiles/test_seqbinarytree.dir
-  OBJECT_FILE_DIR = tree/CMakeFiles/test_seqbinarytree.dir
+  OBJECT_DIR = tree/CMakeFiles/test_basebinarytree.dir
+  OBJECT_FILE_DIR = tree/CMakeFiles/test_basebinarytree.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target test_seqbinarytree
+# Link build statements for EXECUTABLE target test_basebinarytree
 
 
 #############################################
-# Link the executable tree/test_seqbinarytree
+# Link the executable tree/test_basebinarytree
 
-build tree/test_seqbinarytree: CXX_EXECUTABLE_LINKER__test_seqbinarytree_Debug tree/CMakeFiles/test_seqbinarytree.dir/test_seqbinarytree.cpp.o
+build tree/test_basebinarytree: CXX_EXECUTABLE_LINKER__test_basebinarytree_Debug tree/CMakeFiles/test_basebinarytree.dir/test_basebinarytree.cpp.o
   FLAGS = -g
-  OBJECT_DIR = tree/CMakeFiles/test_seqbinarytree.dir
+  OBJECT_DIR = tree/CMakeFiles/test_basebinarytree.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = tree/test_seqbinarytree
-  TARGET_PDB = test_seqbinarytree.dbg
+  TARGET_FILE = tree/test_basebinarytree
+  TARGET_PDB = test_basebinarytree.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_huffmantree
+
+
+#############################################
+# Order-only phony target for test_huffmantree
+
+build cmake_object_order_depends_target_test_huffmantree: phony || .
+
+build tree/CMakeFiles/test_huffmantree.dir/test_huffmantree.cpp.o: CXX_COMPILER__test_huffmantree_unscanned_Debug /home/bzx/work_space/DataStructures/tree/test_huffmantree.cpp || cmake_object_order_depends_target_test_huffmantree
+  DEP_FILE = tree/CMakeFiles/test_huffmantree.dir/test_huffmantree.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = tree/CMakeFiles/test_huffmantree.dir
+  OBJECT_FILE_DIR = tree/CMakeFiles/test_huffmantree.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_huffmantree
+
+
+#############################################
+# Link the executable tree/test_huffmantree
+
+build tree/test_huffmantree: CXX_EXECUTABLE_LINKER__test_huffmantree_Debug tree/CMakeFiles/test_huffmantree.dir/test_huffmantree.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = tree/CMakeFiles/test_huffmantree.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = tree/test_huffmantree
+  TARGET_PDB = test_huffmantree.dbg
 
 
 #############################################
@@ -1648,15 +1679,17 @@ build tree/rebuild_cache: phony tree/CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build test_basebinarytree: phony tree/test_basebinarytree
+
 build test_crosssparsematrix: phony matrix/cross/test_crosssparsematrix
 
 build test_doublelinklist: phony list/linklist/test_doublelinklist
 
+build test_huffmantree: phony tree/test_huffmantree
+
 build test_linkqueue: phony queue/linkqueue/test_linkqueue
 
 build test_linkstack: phony stack/linkstack/test_linkstack
-
-build test_seqbinarytree: phony tree/test_seqbinarytree
 
 build test_seqlist: phony list/seqlist/test_seqlist
 
@@ -1767,7 +1800,7 @@ build stack/seqstack/all: phony stack/seqstack/test_seqstack
 #############################################
 # Folder: /home/bzx/work_space/DataStructures/build/tree
 
-build tree/all: phony tree/test_seqbinarytree
+build tree/all: phony tree/test_basebinarytree tree/test_huffmantree
 
 # =============================================================================
 # Built-in targets

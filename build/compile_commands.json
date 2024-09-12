@@ -67,8 +67,14 @@
 },
 {
   "directory": "/home/bzx/work_space/DataStructures/build",
-  "command": "/usr/bin/g++ -g -o tree/CMakeFiles/test_seqbinarytree.dir/test_seqbinarytree.cpp.o -c /home/bzx/work_space/DataStructures/tree/test_seqbinarytree.cpp",
-  "file": "/home/bzx/work_space/DataStructures/tree/test_seqbinarytree.cpp",
-  "output": "tree/CMakeFiles/test_seqbinarytree.dir/test_seqbinarytree.cpp.o"
+  "command": "/usr/bin/g++ -g -o tree/CMakeFiles/test_basebinarytree.dir/test_basebinarytree.cpp.o -c /home/bzx/work_space/DataStructures/tree/test_basebinarytree.cpp",
+  "file": "/home/bzx/work_space/DataStructures/tree/test_basebinarytree.cpp",
+  "output": "tree/CMakeFiles/test_basebinarytree.dir/test_basebinarytree.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o tree/CMakeFiles/test_huffmantree.dir/test_huffmantree.cpp.o -c /home/bzx/work_space/DataStructures/tree/test_huffmantree.cpp",
+  "file": "/home/bzx/work_space/DataStructures/tree/test_huffmantree.cpp",
+  "output": "tree/CMakeFiles/test_huffmantree.dir/test_huffmantree.cpp.o"
 }
 ]

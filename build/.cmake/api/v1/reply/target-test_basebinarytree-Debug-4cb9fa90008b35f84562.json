@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "tree/test_seqbinarytree"
+			"path" : "tree/test_basebinarytree"
 		}
 	],
 	"backtrace" : 2,
@@ -53,7 +53,7 @@
 			]
 		}
 	],
-	"id" : "test_seqbinarytree::@08328a494b2f609a5757",
+	"id" : "test_basebinarytree::@08328a494b2f609a5757",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -69,8 +69,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "test_seqbinarytree",
-	"nameOnDisk" : "test_seqbinarytree",
+	"name" : "test_basebinarytree",
+	"nameOnDisk" : "test_basebinarytree",
 	"paths" : 
 	{
 		"build" : "tree",
@@ -91,7 +91,7 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "tree/test_seqbinarytree.cpp",
+			"path" : "tree/test_basebinarytree.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

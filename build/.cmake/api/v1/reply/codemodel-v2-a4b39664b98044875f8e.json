@@ -81,7 +81,7 @@
 					"source" : "list/seqlist",
 					"targetIndexes" : 
 					[
-						33
+						34
 					]
 				},
 				{
@@ -96,8 +96,8 @@
 					"source" : "list/linklist",
 					"targetIndexes" : 
 					[
-						29,
-						36
+						30,
+						37
 					]
 				},
 				{
@@ -128,7 +128,7 @@
 					"source" : "stack/seqstack",
 					"targetIndexes" : 
 					[
-						35
+						36
 					]
 				},
 				{
@@ -143,7 +143,7 @@
 					"source" : "stack/linkstack",
 					"targetIndexes" : 
 					[
-						31
+						33
 					]
 				},
 				{
@@ -174,7 +174,7 @@
 					"source" : "queue/seqqueue",
 					"targetIndexes" : 
 					[
-						34
+						35
 					]
 				},
 				{
@@ -189,7 +189,7 @@
 					"source" : "queue/linkqueue",
 					"targetIndexes" : 
 					[
-						30
+						32
 					]
 				},
 				{
@@ -220,7 +220,7 @@
 					"source" : "matrix/tuple",
 					"targetIndexes" : 
 					[
-						37
+						38
 					]
 				},
 				{
@@ -235,7 +235,7 @@
 					"source" : "matrix/cross",
 					"targetIndexes" : 
 					[
-						28
+						29
 					]
 				},
 				{
@@ -250,7 +250,8 @@
 					"source" : "tree",
 					"targetIndexes" : 
 					[
-						32
+						28,
+						31
 					]
 				}
 			],
@@ -315,7 +316,8 @@
 						34,
 						35,
 						36,
-						37
+						37,
+						38
 					]
 				}
 			],
@@ -518,6 +520,13 @@
 					"projectIndex" : 0
 				},
 				{
+					"directoryIndex" : 13,
+					"id" : "test_basebinarytree::@08328a494b2f609a5757",
+					"jsonFile" : "target-test_basebinarytree-Debug-4cb9fa90008b35f84562.json",
+					"name" : "test_basebinarytree",
+					"projectIndex" : 0
+				},
+				{
 					"directoryIndex" : 12,
 					"id" : "test_crosssparsematrix::@ff6bf6e3bcc3209186c8",
 					"jsonFile" : "target-test_crosssparsematrix-Debug-77d5f77c7777136cf3ea.json",
@@ -532,6 +541,13 @@
 					"projectIndex" : 0
 				},
 				{
+					"directoryIndex" : 13,
+					"id" : "test_huffmantree::@08328a494b2f609a5757",
+					"jsonFile" : "target-test_huffmantree-Debug-12a9196752d3d59aac51.json",
+					"name" : "test_huffmantree",
+					"projectIndex" : 0
+				},
+				{
 					"directoryIndex" : 9,
 					"id" : "test_linkqueue::@b830f7db69a8fc6eef3e",
 					"jsonFile" : "target-test_linkqueue-Debug-979419d23f590e0acdc1.json",
@@ -543,13 +559,6 @@
 					"id" : "test_linkstack::@7079008ea83fd359d2d9",
 					"jsonFile" : "target-test_linkstack-Debug-4d552c6f4ed1fbf52724.json",
 					"name" : "test_linkstack",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 13,
-					"id" : "test_seqbinarytree::@08328a494b2f609a5757",
-					"jsonFile" : "target-test_seqbinarytree-Debug-13df3697a333036f5beb.json",
-					"name" : "test_seqbinarytree",
 					"projectIndex" : 0
 				},
 				{

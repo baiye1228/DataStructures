@@ -58,6 +58,7 @@ public:
   T &GetNode(int index) const;
   int GetCount() const;
   bool IsValidNode(int index) const;
+  bool IsEmpty()const;
   int CalculateDepth() const;
   int CountLeaves() const;
   void Mirror();
@@ -435,6 +436,19 @@ inline int SeqBinaryTree<T>::GetCount() const {
 template <typename T>
 inline bool SeqBinaryTree<T>::IsValidNode(int index) const {
   return index <= m_final_index && m_nodes[index] != T();
+}
+
+/**
+ * *****************************************************************
+ * @brief : 判断是否为空
+ * @tparam T 
+ * @return true             
+ * @return false            
+ * *****************************************************************
+ */
+template <typename T>
+inline bool SeqBinaryTree<T>::IsEmpty() const {
+  return m_count==0;
 }
 
 /**

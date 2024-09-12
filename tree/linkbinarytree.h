@@ -15,7 +15,7 @@
 #define _LINKBINARYTREE_H_
 
 #include "../stack/seqstack/seqstack.h"
-#include"seqbinarytree.h"
+#include "seqbinarytree.h"
 #include <iostream>
 
 using std::cout;
@@ -30,25 +30,55 @@ class LinkBinaryTree {
   嵌套结点类
 
   *****************************************************************/
-private:
+protected:
   class Node {
   public:
     T m_value;
     Node *m_left;
     Node *m_right;
 
-    Node(const T &val) : m_value(val), m_left(nullptr), m_right(nullptr) {}
-  };
+    Node(const T &val=T()) : m_value(val), m_left(nullptr), m_right(nullptr) {}
 
-  typedef Node *NodePointer;
+    Node(const Node& other){
+      m_value=other.m_value;
+      m_left=other.m_left;
+      m_right=other.m_right;
+    }
+
+
+    bool operator>(const Node& other)const{
+      return m_value>other.m_value;
+    }
+
+    bool operator<(const Node &other) const {
+      return m_value < other.m_value;
+    }
+
+    bool operator!=(const Node &other) const {
+      return m_value != other.m_value;
+    }
+
+    bool operator==(const Node &other) const {
+      return m_value == other.m_value;
+    }
+  };
 
   /*****************************************************************
 
   数据域
 
   *****************************************************************/
-protected:
+
+  typedef Node *NodePointer;
   NodePointer m_root;
+
+
+  // bool operator>(const NodePointer left,const NodePointer right)const{
+
+  // }
+
+
+
 
   /*****************************************************************
 
@@ -64,30 +94,29 @@ private:
   void HelpInOrderRecursive(NodePointer node) const;
   void HelpPostOrderRecursive(NodePointer node) const;
   void HelpMirror(NodePointer node);
-  void HelpLinkToSequential(NodePointer node,int index,SeqBinaryTree<T>& seq_tree)const;
+  void HelpLinkToSequential(NodePointer node, int index, SeqBinaryTree<T> &seq_tree) const;
 
   /**
    * *****************************************************************
    * @brief : 辅助顺序存储转换成二叉链表
-   * @param  seq_tree         
-   * @param  index            
-   * @return NodePointer      
+   * @param  seq_tree
+   * @param  index
+   * @return NodePointer
    * *****************************************************************
    */
-  NodePointer HelpSequentialToLink(const SeqBinaryTree<T>& seq_tree,int index){
+  NodePointer HelpSequentialToLink(const SeqBinaryTree<T> &seq_tree, int index) {
     //检查是否存在这个结点
-    if(!seq_tree.IsValidNode(index)){
+    if (!seq_tree.IsValidNode(index)) {
       return nullptr;
     }
 
-    NodePointer node=new Node(seq_tree.GetNode(index));
-    
-    node->m_left=HelpSequentialToLink(seq_tree,index*2+1);
-    node->m_right=HelpSequentialToLink(seq_tree,index*2+2);
+    NodePointer node = new Node(seq_tree.GetNode(index));
+
+    node->m_left = HelpSequentialToLink(seq_tree, index * 2 + 1);
+    node->m_right = HelpSequentialToLink(seq_tree, index * 2 + 2);
 
     return node;
   }
-
 
 public:
   LinkBinaryTree() : m_root(nullptr) {}
@@ -102,9 +131,8 @@ public:
   void InOrderRecursive() const;
   void PostOrderRecursive() const;
   void Mirror();
-  void LinkToSequential(SeqBinaryTree<T>& seq_tree)const;
-  void SequentialToLink(const SeqBinaryTree<T>& seq_tree);
-  
+  void LinkToSequential(SeqBinaryTree<T> &seq_tree) const;
+  void SequentialToLink(const SeqBinaryTree<T> &seq_tree);
 
   /*****************************************************************
 
@@ -138,7 +166,7 @@ public:
     PreOrderIterator(NodePointer node) : m_current(nullptr) {
       if (node) {
         m_stack.Push(node);
-        m_current=NextNode(node);
+        m_current = NextNode(node);
       }
     }
 
@@ -209,9 +237,9 @@ public:
     InOrderIterator(NodePointer node) : m_current(nullptr) {
       while (node) { //往左滑到底
         m_stack.Push(node);
-        node=node->m_left;
+        node = node->m_left;
       }
-      m_current=NextNode(node);
+      m_current = NextNode(node);
     }
 
     // 前置++操作符
@@ -265,9 +293,9 @@ public:
       }
       m_stack.Pop();
 
-      NodePointer result=node;
+      NodePointer result = node;
 
-      if (m_stack.GetTop(node)) {   //再取一个结点，也就是当前结点的父节点
+      if (m_stack.GetTop(node)) {     //再取一个结点，也就是当前结点的父节点
         if (node->m_left == result) { //如果当前结点是左子结点
 
           node = node->m_right;
@@ -279,14 +307,13 @@ public:
               node = node->m_right;
             }
           }
-
         }
       }
       return result;
     }
 
   public:
-    PostOrderIterator(NodePointer node):m_current(nullptr) {
+    PostOrderIterator(NodePointer node) : m_current(nullptr) {
       while (node) {
         m_stack.Push(node);
         if (node->m_left) {
@@ -296,7 +323,7 @@ public:
         }
       }
 
-      m_current=NextNode(node);
+      m_current = NextNode(node);
     }
 
     //前置++操作符
@@ -327,7 +354,7 @@ public:
 
   // 获取后序遍历的开始迭代器
   PostOrderIterator PostOrderBegin() const {
-    
+
     return PostOrderIterator(m_root);
   }
   // 获取中序遍历的结束迭代器
@@ -502,24 +529,24 @@ inline void LinkBinaryTree<T>::HelpMirror(NodePointer node) {
 /**
  * *****************************************************************
  * @brief : 辅助转换成顺序存储二叉树
- * @tparam T 
- * @param  node             
- * @param  index            
- * @param  seq_tree         
+ * @tparam T
+ * @param  node
+ * @param  index
+ * @param  seq_tree
  * *****************************************************************
  */
 template <typename T>
 inline void LinkBinaryTree<T>::HelpLinkToSequential(NodePointer node, int index, SeqBinaryTree<T> &seq_tree) const {
-  if(node==nullptr){
+  if (node == nullptr) {
     return;
   }
-  seq_tree.SetNode(index,node->m_value);
+  seq_tree.SetNode(index, node->m_value);
 
-  if(node->m_left){
-    HelpLinkToSequential(node->m_left,index*2+1,seq_tree);
+  if (node->m_left) {
+    HelpLinkToSequential(node->m_left, index * 2 + 1, seq_tree);
   }
-  if(node->m_right){
-    HelpLinkToSequential(node->m_right,index*2+2,seq_tree);
+  if (node->m_right) {
+    HelpLinkToSequential(node->m_right, index * 2 + 2, seq_tree);
   }
 }
 
@@ -603,7 +630,7 @@ inline bool LinkBinaryTree<T>::IsEmpty() const {
  */
 template <typename T>
 inline void LinkBinaryTree<T>::PreOrderRecursive() const {
-  cout<<"\n";
+  cout << "\n";
   HelpPreOrderRecursive(m_root);
   cout << "\n";
 }
@@ -648,26 +675,26 @@ inline void LinkBinaryTree<T>::Mirror() {
 /**
  * *****************************************************************
  * @brief : 转换成顺序存储二叉树
- * @tparam T 
- * @param  seq_tree         
+ * @tparam T
+ * @param  seq_tree
  * *****************************************************************
  */
 template <typename T>
 inline void LinkBinaryTree<T>::LinkToSequential(SeqBinaryTree<T> &seq_tree) const {
-  HelpLinkToSequential(m_root,0,seq_tree);
+  HelpLinkToSequential(m_root, 0, seq_tree);
 }
 
 /**
  * *****************************************************************
  * @brief : 将顺序存储二叉树转换成二叉链表
- * @tparam T 
- * @param  seq_tree         
+ * @tparam T
+ * @param  seq_tree
  * *****************************************************************
  */
 template <typename T>
-inline void LinkBinaryTree<T>::SequentialToLink(const SeqBinaryTree<T> &seq_tree)  {
+inline void LinkBinaryTree<T>::SequentialToLink(const SeqBinaryTree<T> &seq_tree) {
   Clear();
-  m_root=HelpSequentialToLink(seq_tree,0);
+  m_root = HelpSequentialToLink(seq_tree, 0);
 }
 
 } // namespace bu_tools
