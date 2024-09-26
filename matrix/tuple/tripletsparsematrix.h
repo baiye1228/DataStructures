@@ -44,6 +44,14 @@ private:
       m_col = -1;
     }
     Triple(int r, int c, const T &v) : m_row(r), m_col(c), m_value(v) {}
+    Triple& operator=(const Triple& other){
+      if(this!=&other){
+        m_row=other.m_row;
+      m_col=other.m_col;
+      m_value=other.m_value;
+      }
+      return *this;
+    }
   };
 
   /*****************************************************************
@@ -73,15 +81,27 @@ public:
   void Transpose(TripletSparseMatrix<T> &matrix) const;
   void TransposeFast(TripletSparseMatrix<T> &matrix) const;
   int GetRows() const;
+  bool SetRows(int r);
   int GetCols() const;
+  bool SetCols(int c);
   int GetTolal() const;
   bool IsEmpty() const;
+  bool IsNonZeroAt(int r,int c)const;
   bool Insert(int r, int c, const T &e);
+  bool Remove(int r,int c);
   bool GetValue(int r, int c, T &e) const;
   TripletSparseMatrix<T> &operator=(const TripletSparseMatrix<T> &other);
   TripletSparseMatrix<T> operator+(const TripletSparseMatrix<T> &other);
   TripletSparseMatrix<T> operator*(const TripletSparseMatrix<T> &other);
 
+
+TripletSparseMatrix(){
+  m_rows=0;
+  m_cols=0;
+  m_total=0;
+  m_capacity=10;
+  m_data=nullptr;
+}
   TripletSparseMatrix(int r, int c, int cap = 10) : m_rows(r), m_cols(c), m_capacity(cap), m_total(0) {
     m_data = new Triple[m_capacity];
   }
@@ -155,6 +175,11 @@ public:
 
     //指针操作
     const Triple *operator->() const {
+      return m_current;
+    }
+
+    // 非const版本，允许修改对象内容
+    Triple *operator->() {
       return m_current;
     }
 
@@ -345,6 +370,34 @@ inline int TripletSparseMatrix<T>::GetRows() const {
 
 /**
  * *****************************************************************
+ * @brief : 设置行数，在缩减时，减去的行没有非零元素才成功
+ * @tparam T 
+ * @param  r                1开始
+ * @return true             
+ * @return false            
+ * *****************************************************************
+ */
+template <typename T>
+inline bool TripletSparseMatrix<T>::SetRows(int r) {
+  if(r<=0){
+    return false;
+  }
+
+  if(r<m_rows){
+    for(int i=m_total-1;i>0;--i){
+      //缩减的这个区间存在非零元素
+      if(m_data[i].m_row>r){
+        return false;
+      }
+    }
+  }
+
+  m_rows=r;
+  return true;
+}
+
+/**
+ * *****************************************************************
  * @brief : 获取列数
  * @tparam T
  * @return int
@@ -353,6 +406,34 @@ inline int TripletSparseMatrix<T>::GetRows() const {
 template <typename T>
 inline int TripletSparseMatrix<T>::GetCols() const {
   return m_cols;
+}
+
+/**
+ * *****************************************************************
+ * @brief : 设置列数，在缩减时，减去的列没有非零元素才成功
+ * @tparam T 
+ * @param  c                1开始
+ * @return true             
+ * @return false            
+ * *****************************************************************
+ */
+template <typename T>
+inline bool TripletSparseMatrix<T>::SetCols(int c) {
+  if(c<=0){
+    return false;
+  }
+
+  if(c<m_cols){
+    for (int i = m_total - 1; i > 0; --i) {
+      //缩减的这个区间存在非零元素
+      if (m_data[i].m_col > c) {
+        return false;
+      }
+    }
+  }
+
+  m_cols=c;
+  return true;
 }
 
 /**
@@ -382,11 +463,34 @@ inline bool TripletSparseMatrix<T>::IsEmpty() const {
 
 /**
  * *****************************************************************
- * @brief : 插入
- * @tparam T
- * @param  r
- * @param  c
- * @param  e
+ * @brief : 判断指定行列是否存在非零元素
+ * @tparam T 
+ * @param  r                
+ * @param  c                
+ * @return true             
+ * @return false            
+ * *****************************************************************
+ */
+template <typename T>
+inline bool TripletSparseMatrix<T>::IsNonZeroAt(int r, int c) const {
+  for(int i=0;i<m_total;++i){
+    if(m_data[i].m_row==r&&m_data[i].m_col==c){
+      return true;
+    }
+  }
+
+  return false;
+}
+
+/**
+ * *****************************************************************
+ * @brief : 插入，存在同行同列，改变元素值
+ * @tparam T 
+ * @param  r                
+ * @param  c                
+ * @param  e                
+ * @return true             
+ * @return false            
  * *****************************************************************
  */
 template <typename T>
@@ -415,6 +519,32 @@ inline bool TripletSparseMatrix<T>::Insert(int r, int c, const T &e) {
   // 在找到的位置插入新元素
   InsertAt(index, Triple(r, c, e));
   return true;
+}
+
+/**
+ * *****************************************************************
+ * @brief : 删除指定行列的非零值
+ * @tparam T 
+ * @param  r                
+ * @param  c                
+ * @return true             
+ * @return false            指定行列的值不存在
+ * *****************************************************************
+ */
+template <typename T>
+inline bool TripletSparseMatrix<T>::Remove(int r, int c) {
+  for (int i = 0; i < m_total; ++i) {
+    if (r == m_data[i].m_row && c == m_data[i].m_col) {
+
+      for (int j = i; j < m_total - 1; ++j) {
+        m_data[j] = m_data[j + 1];
+      }
+
+      --m_total;
+      return true;
+    }
+  }
+  return false;
 }
 
 /**

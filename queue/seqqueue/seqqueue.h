@@ -42,6 +42,7 @@ public:
 
   void Clear();
   bool DeQueue(T &e);
+  bool DeQueue();
   bool EnQueue(const T &e);
   bool GetFront(T &e) const;
   int GetLength() const;
@@ -150,6 +151,23 @@ inline bool SeqQueue<T>::DeQueue(T &e) {
   }
 
   e = m_base[m_front];
+  m_front = (m_front + 1) % m_capacity;
+  return true;
+}
+
+/**
+ * *****************************************************************
+ * @brief : 出队列
+ * @tparam T 
+ * @return true             
+ * @return false            
+ * *****************************************************************
+ */
+template <typename T>
+inline bool SeqQueue<T>::DeQueue() {
+  if (IsEmpty()) {
+    return false;
+  }
   m_front = (m_front + 1) % m_capacity;
   return true;
 }

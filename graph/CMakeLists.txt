@@ -1,0 +1,3 @@
+add_executable(test_adjmatrixgraph test_adjmatrixgraph.cpp)
+
+add_executable(test_adjlistgraph test_adjlistgraph.cpp)

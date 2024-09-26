@@ -49,6 +49,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/bzx/work_space/DataStructures/build/queue/cmake_install.cmake")
   include("/home/bzx/work_space/DataStructures/build/matrix/cmake_install.cmake")
   include("/home/bzx/work_space/DataStructures/build/tree/cmake_install.cmake")
+  include("/home/bzx/work_space/DataStructures/build/graph/cmake_install.cmake")
 
 endif()
 

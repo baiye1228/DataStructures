@@ -62,6 +62,7 @@ public:
   int CalculateDepth() const;
   int CountLeaves() const;
   void Mirror();
+  bool IsNodeExists(const T& value)const;
 
 private:
   void Resize();
@@ -521,6 +522,25 @@ inline void SeqBinaryTree<T>::Mirror() {
       --end;
     }
   }
+}
+
+/**
+ * *****************************************************************
+ * @brief : 判断某个结点是否存在这棵树里
+ * @tparam T 
+ * @param  value            
+ * @return true             
+ * @return false            
+ * *****************************************************************
+ */
+template <typename T>
+inline bool SeqBinaryTree<T>::IsNodeExists(const T &value) const {
+  for(int i=0;i<m_final_index;++i){
+    if(value==m_nodes[i]){
+      return true;
+    }
+  }
+  return false;
 }
 
 /**

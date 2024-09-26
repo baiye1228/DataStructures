@@ -10,12 +10,14 @@ add_subdirectory(stack)
 # 队列相关子目录
 add_subdirectory(queue)
 
-#稀疏矩阵相关子目录
+# 稀疏矩阵相关子目录
 add_subdirectory(matrix)
 
-#二叉树相关子目录
+# 二叉树相关子目录
 add_subdirectory(tree)
 
+# 图相关子目录
+add_subdirectory(graph)
 
 include(CTest)
 enable_testing()

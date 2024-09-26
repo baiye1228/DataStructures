@@ -76,5 +76,17 @@
   "command": "/usr/bin/g++ -g -o tree/CMakeFiles/test_huffmantree.dir/test_huffmantree.cpp.o -c /home/bzx/work_space/DataStructures/tree/test_huffmantree.cpp",
   "file": "/home/bzx/work_space/DataStructures/tree/test_huffmantree.cpp",
   "output": "tree/CMakeFiles/test_huffmantree.dir/test_huffmantree.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o graph/CMakeFiles/test_adjmatrixgraph.dir/test_adjmatrixgraph.cpp.o -c /home/bzx/work_space/DataStructures/graph/test_adjmatrixgraph.cpp",
+  "file": "/home/bzx/work_space/DataStructures/graph/test_adjmatrixgraph.cpp",
+  "output": "graph/CMakeFiles/test_adjmatrixgraph.dir/test_adjmatrixgraph.cpp.o"
+},
+{
+  "directory": "/home/bzx/work_space/DataStructures/build",
+  "command": "/usr/bin/g++ -g -o graph/CMakeFiles/test_adjlistgraph.dir/test_adjlistgraph.cpp.o -c /home/bzx/work_space/DataStructures/graph/test_adjlistgraph.cpp",
+  "file": "/home/bzx/work_space/DataStructures/graph/test_adjlistgraph.cpp",
+  "output": "graph/CMakeFiles/test_adjlistgraph.dir/test_adjlistgraph.cpp.o"
 }
 ]

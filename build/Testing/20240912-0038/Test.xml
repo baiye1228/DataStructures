@@ -7,8 +7,8 @@
 	CompilerVersion="11.4.0"
 	OSName="Linux"
 	Hostname="DESKTOP-OSEOANG"
-	OSRelease="5.10.102.1-microsoft-standard-WSL2"
-	OSVersion="#1 SMP Wed Mar 2 00:30:59 UTC 2022"
+	OSRelease="5.15.153.1-microsoft-standard-WSL2"
+	OSVersion="#1 SMP Fri Mar 29 23:14:13 UTC 2024"
 	OSPlatform="x86_64"
 	Is64Bits="1"
 	VendorString="GenuineIntel"
@@ -19,16 +19,16 @@
 	NumberOfLogicalCPU="20"
 	NumberOfPhysicalCPU="10"
 	TotalVirtualMemory="4096"
-	TotalPhysicalMemory="15831"
+	TotalPhysicalMemory="15828"
 	LogicalProcessorsPerPhysical="2"
 	ProcessorClockFrequency="2688"
 	>
 	<Testing>
-		<StartDateTime>Sep 12 19:02 CST</StartDateTime>
-		<StartTestTime>1726138948</StartTestTime>
+		<StartDateTime>Sep 12 21:22 CST</StartDateTime>
+		<StartTestTime>1726147357</StartTestTime>
 		<TestList/>
-		<EndDateTime>Sep 12 19:02 CST</EndDateTime>
-		<EndTestTime>1726138948</EndTestTime>
+		<EndDateTime>Sep 12 21:22 CST</EndDateTime>
+		<EndTestTime>1726147357</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>
