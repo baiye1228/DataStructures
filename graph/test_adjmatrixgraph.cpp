@@ -40,10 +40,10 @@ void test_Kruskal();
 int main(int argc, const char *argv[]) {
 
    //test_Dijkstra();
-  test_Floyd();
+  //test_Floyd();
   //test_TopologicalSort();
   //test_Prim();
-  //test_Kruskal();
+  test_Kruskal();
 
   return 0;
 }

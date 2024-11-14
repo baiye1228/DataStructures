@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="Linux-g++"
-	BuildStamp="20240926-0019-Experimental"
+	BuildStamp="20241114-0658-Experimental"
 	Name="DESKTOP-OSEOANG"
 	Generator="ctest-3.29.3"
 	CompilerName="/usr/bin/g++"
 	CompilerVersion="11.4.0"
 	OSName="Linux"
 	Hostname="DESKTOP-OSEOANG"
-	OSRelease="5.15.153.1-microsoft-standard-WSL2"
-	OSVersion="#1 SMP Fri Mar 29 23:14:13 UTC 2024"
+	OSRelease="5.15.167.4-microsoft-standard-WSL2"
+	OSVersion="#1 SMP Tue Nov 5 00:21:55 UTC 2024"
 	OSPlatform="x86_64"
 	Is64Bits="1"
 	VendorString="GenuineIntel"
@@ -24,11 +24,11 @@
 	ProcessorClockFrequency="2688"
 	>
 	<Testing>
-		<StartDateTime>Sep 26 20:18 CST</StartDateTime>
-		<StartTestTime>1727353086</StartTestTime>
+		<StartDateTime>Nov 14 14:58 CST</StartDateTime>
+		<StartTestTime>1731567483</StartTestTime>
 		<TestList/>
-		<EndDateTime>Sep 26 20:18 CST</EndDateTime>
-		<EndTestTime>1727353086</EndTestTime>
+		<EndDateTime>Nov 14 14:58 CST</EndDateTime>
+		<EndTestTime>1731567483</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

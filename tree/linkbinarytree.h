@@ -73,11 +73,6 @@ protected:
   NodePointer m_root;
 
 
-  // bool operator>(const NodePointer left,const NodePointer right)const{
-
-  // }
-
-
 
 
   /*****************************************************************

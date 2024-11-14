@@ -11,29 +11,29 @@
  * ************************************************************************
  */
 
-#include<iostream>
+//#include<iostream>
 #include "huffmantree.h"
 
 
-using std::cout;
-using std::cin;
 
-bu_tools::HuffmanItem<char,int> items[4];
 
 
 
 
 int main(int argc, const char* argv[]) {
+  int len=6;
 
-  char data[] = {'A', 'B', 'C', 'D'};
-  int weights[] = {8, 6, 3, 5};
+  bu_tools::HuffmanItem<char,int> items[len];
 
-  for(int i=0;i<4;++i){
+  char data[] = {'A', 'B', 'C', 'D','E','F'};
+  int weights[] = {8, 6, 3, 5,9,4};
+
+  for(int i=0;i<len;++i){
     items[i].m_data=data[i];
     items[i].m_weight=weights[i];
   }
 
-  bu_tools::HuffmanTree<char,int> huffmantree(items,4);
+  bu_tools::HuffmanTree<char,int> huffmantree(items,len);
 
   huffmantree.PrintHuffmanCodes();
 

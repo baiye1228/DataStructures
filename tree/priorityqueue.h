@@ -39,6 +39,14 @@ private:
 
     bool operator()(const T &left, const T &right) const {
 
+      if constexpr(std::is_pointer<T>::value){
+        if (m_is_min_heap) {
+          return *left > *right; // 最小堆，比较指针所指的值
+        } else {
+          return *left < *right; // 最大堆，比较指针所指的值
+        }
+      }
+
       if (m_is_min_heap) {
         return left > right; // 最小堆，比较值
       } else {
@@ -46,13 +54,13 @@ private:
       }
     }
 
-    bool operator()(const T *left, const T *right) const {
-      if (m_is_min_heap) {
-        return *left > *right; // 最小堆，比较指针所指的值
-      } else {
-        return *left < *right; // 最大堆，比较指针所指的值
-      }
-    }
+    // bool operator()(const T *left, const T *right) const {
+    //   if (m_is_min_heap) {
+    //     return *left > *right; // 最小堆，比较指针所指的值
+    //   } else {
+    //     return *left < *right; // 最大堆，比较指针所指的值
+    //   }
+    // }
   };
 
   Comarator m_comp; //比较器
@@ -119,6 +127,16 @@ inline void PriorityQueue<T>::SiftDown(int index) {
 
     // 更新索引，继续下一次循环，检查新的子树是否满足堆的性质
     index = swap_index;
+  }
+
+  // 特殊情况：如果只剩两个元素，强制进行一次比较
+  if(index==0&&n==1){
+    if(m_comp(this->m_nodes[0],this->m_nodes[1])){
+      T temp = this->m_nodes[0];
+    this->m_nodes[0] = this->m_nodes[1];
+    this->m_nodes[1] = temp;
+    }
+    
   }
 }
 

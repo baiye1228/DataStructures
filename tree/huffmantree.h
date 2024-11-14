@@ -142,27 +142,26 @@ inline HuffmanTree<T, W>::HuffmanTree(HuffmanItem<T, W> *items, int n) {
     pq.Push(p);
   }
 
+  // for(int i=0;i<6;++i){
+  //   HuffmanNodePointer temp_p=pq.GetNode(i);
+  //   cout<<temp_p->m_value.m_data;
+  // }
+  // cout<<"\n";
+
   // 使用哈夫曼算法构建树
   HuffmanNodePointer left, right, parent;
 
   while (!pq.IsEmpty()) {
-    // HuffmanItem<T, W> left_val, right_val, temp;
-    // pq.Pop(left_val);
-    // pq.Pop(right_val);
-    // left = new HuffmanNode(left_val);
-    // right = new HuffmanNode(right_val);
-    // temp.m_data = T();
-    // temp.m_weight = left_val.m_weight + right_val.m_weight;
-    // parent = new HuffmanNode(temp);
-    // parent->m_left = left;
-    // parent->m_right = right;
-
-    // if (!pq.IsEmpty()) {
-    //   pq.Push(parent->m_value);
+    // for (int i = 0; i < pq.GetCount(); ++i) {
+    //   HuffmanNodePointer temp_p = pq.GetNode(i);
+    //   cout <<temp_p->m_value.m_weight<<"  ";
     // }
+    // cout << "\n";
 
     pq.Pop(left);
     pq.Pop(right);
+
+    //cout<<left->m_value.m_weight<<"  "<<right->m_value.m_weight<<"\n";
 
     HuffmanItem<T, W> temp(T(), left->m_value.m_weight + right->m_value.m_weight);
 

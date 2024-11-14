@@ -113,7 +113,6 @@ public:
   bool NextElem(const T &e, T &next_e) const;
   bool PriorElem(const T &e, T &prior_e) const;
   SeqList<T> &operator=(const SeqList<T> &right_l);
-  T &operator[](int index);
   T &operator[](int index) const;
 };
 
@@ -445,23 +444,15 @@ inline SeqList<T> &SeqList<T>::operator=(const SeqList<T> &right_l) {
   return *this;
 }
 
+
 /**
  * *****************************************************************
  * @brief : 重载[]运算符
- * @tparam T
- * @param  index
- * @return T&
+ * @tparam T 
+ * @param  index            
+ * @return T&               
  * *****************************************************************
  */
-template <typename T>
-inline T &SeqList<T>::operator[](int index) {
-  //判断是否越界
-  if (index < 1 || index > m_len) {
-    throw std::out_of_range("给出的下标越界");
-  }
-  return m_elem[index - 1];
-}
-
 template <typename T>
 inline T &SeqList<T>::operator[](int index) const {
   //判断是否越界
